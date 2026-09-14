@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se</title>
+    
+</head>
+<body>
+    <h1>Cadastre-se agora!</h1>
+    
+        <form action="processar_cadastro" method="post">
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" minlength="1" placeholder="Nome Completo" required><br>
+
+            <label for="CPF">CPF:</label>
+            <input type="text" id="CPF" name="CPF" maxlength="14" placeholder="000.000.000-00" required><br>
+
+            <label for="data_nascimento">Data de Nascimento:</label>
+            <input type="date" id="data_nascimento" name="data_nascimento" required><br>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" maxlength="15" placeholder="(__) _____-____" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="seu@email.com" required><br>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" placeholder="Sua senha" required><br>
+
+            <label for="confirmar_senha">Confirmar Senha:</label>   
+            <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Confirme sua senha" required><br>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+</body>
+</html>

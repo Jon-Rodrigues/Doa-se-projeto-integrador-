@@ -5,3 +5,39 @@
 body {
     background-color: var(--cor-fundo);
 }
+
+.nav-links{
+
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    gap: 20px;
+    text-decoration: none;
+
+}
+
+.nav-links a{
+
+    text-decoration: none;
+    color: rgb(15, 14, 14);
+}
+
+.nav-links a:hover{
+
+    color: rgb(0, 115, 168);
+    transition: 0.7s;
+
+}
+
+.regis{
+
+    text-decoration: none;
+    color: rgb(165, 0, 0);
+}
+
+.regis:hover{
+
+    color: rgb(104, 0, 95);
+    transition: 0.7s;
+
+}
