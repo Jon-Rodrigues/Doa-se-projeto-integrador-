@@ -1,5 +1,6 @@
 :root {
     --cor-fundo: #F7F2EE;
+    
 }
 
 body {
@@ -40,4 +41,14 @@ body {
     color: rgb(104, 0, 95);
     transition: 0.7s;
 
+}
+
+.login_regis{
+
+    background-color: var(--cor-fundo)
+}
+
+.registro{
+    
+    background-color: var(--cor-fundo)
 }
