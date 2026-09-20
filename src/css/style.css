@@ -4,6 +4,7 @@
 }
 
 body {
+    margin: 0;
     background-color: var(--cor-fundo);
 }
 
@@ -13,14 +14,14 @@ body {
     justify-content: space-between;
     list-style: none;
     gap: 20px;
-    text-decoration: none;
 
 }
 
 .nav-links a{
 
     text-decoration: none;
-    color: rgb(15, 14, 14);
+    color: white;
+    mix-blend-mode: difference;
 }
 
 .nav-links a:hover{
@@ -64,3 +65,112 @@ body {
     border: 2px solid rgba(64, 44, 5, 0.733);   
      }
 
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.image-hero-bg {
+    width: 120%;
+    height: auto;
+    filter: brightness(50%) blur(5px);
+    z-index: 1;
+}
+
+.image-hero-person {
+    width: 30%;
+    height: auto;
+    position: absolute;
+    z-index: 3;
+}
+
+.hero-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 5 / 2;
+    overflow: hidden;
+}
+
+
+#hero-doase {
+    font-family: 'Arial Narrow Bold', sans-serif;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0) 30%, var(--cor-fundo) 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 900;
+    font-size: 18vw;
+    position: absolute;
+    z-index: 2;
+}
+
+#hero-text {
+    font-family: Tahoma;
+    font-weight: 300;
+    letter-spacing: 5px;
+    color: var(--cor-fundo);
+    font-size: 2.3vw;
+    position: absolute;
+    bottom: 50px;
+    right: 10%;
+    z-index: 4;
+}
+
+
+.hero-nav-bar {
+    width: 150%;
+    height: 150px;
+    position: absolute;
+    background-color: black;
+    top: -80px;
+    left: -30px;
+    filter: blur(50px);
+    transition: 0.5s ease-in-out;
+}
+
+nav.nav-scrolled .hero-nav-bar {
+    background-color: white;
+    transition: 0.5s ease-in-out;
+}
+
+.parallax {
+    transition: transform 0.5s ease-out;
+}
+
+
+.btn-o-que-doar{
+    border: none;
+}
+
+.icon-o-que-doar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 300px;
+    width: 20px;
+}
+
+
+
+
+
+
+.mapa-estados{
+    fill: #E1E4E8;
+    scale: 100%;
+    transition: transform 0.1s ease-in;
+    transition: transform 0.2s ease-out;
+}
+
+.mapa-estados:hover {
+    fill: #d9bcad;
+    cursor: pointer;
+}
