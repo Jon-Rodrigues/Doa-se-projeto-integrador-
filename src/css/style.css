@@ -1,3 +1,12 @@
+/* ==========================================================================
+   1. VARIÁVEIS E RESET BASE
+   ========================================================================== */
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
 :root {
     --cor-fundo: #F7F2EE;
     
@@ -8,10 +17,14 @@ body {
     background-color: var(--cor-fundo);
 }
 
+/* ==========================================================================
+   2. NAVEGAÇÃO
+   ========================================================================== */
+
 .nav-links{
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     list-style: none;
     gap: 20px;
 
@@ -26,44 +39,15 @@ body {
 
 .nav-links a:hover{
 
+    font-size: 17px;
     color: rgb(0, 115, 168);
     transition: 0.7s;
 
 }
 
-.regis{
-
-    text-decoration: none;
-    color: rgb(165, 0, 0);
-}
-
-.regis:hover{
-
-    color: rgb(104, 0, 95);
-    transition: 0.7s;
-
-}
-.container{
-    width: 80%;
-    max-width: 500px;
-    margin: 50px auto ;
-    padding: 50px;
-    text-align:center;
-    background-color: #fffaf3;
-    border-radius: 20px;
-    box-shadow: 0 5px 20px rgb(176, 191, 192);
-   
-} 
-
-.container h1 {
-    color:rgb(10, 10, 10);
-    font-size: 45px;
-    }
-    input {
-    padding: 10px;
-    border-radius: 10px;
-    border: 2px solid rgba(64, 44, 5, 0.733);   
-     }
+/* ==========================================================================
+   3. HERO SECTION
+   ========================================================================== */
 
 nav {
     position: fixed;
@@ -143,25 +127,115 @@ nav.nav-scrolled .hero-nav-bar {
     transition: transform 0.5s ease-out;
 }
 
+/* ==========================================================================
+   4. SECÇÃO O QUE DOAR
+   ========================================================================== */
 
 .btn-o-que-doar{
     border: none;
 }
 
 .icon-o-que-doar {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr);
+    grid-template-rows: repeat(6, auto);
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+#o-que-doar {
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+
+.icon-o-que-doar img {
+    display: block;
+}
+
+.icon-o-que-doar img:hover {
+    transform: scale(1.2);
+    transition: 0.5s ease-in-out;
+    font-size: 16px;
+    text-align: center;
+}
+
+.banner_box {
+    grid-column: 2;
+    grid-row: 1 / span 6;
+    display: flex;
+    width: 100%;
+    background-color: #fffaf3;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgb(17, 163, 173);
+    min-height: 200px;
+}
+
+.banner_content {
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    height: 300px;
-    width: 20px;
+    padding: 20px;
+    text-align: center;
 }
 
+#banner_title{
 
 
+    font-size: 24px;
+    font-weight: bold;
+    
+}
 
+/* ==========================================================================
+   5. COMPONENTES GERAIS E MAPA
+   ========================================================================== */
 
+.container{
+    width: 80%;
+    max-width: 500px;
+    margin: 50px auto ;
+    padding: 50px;
+    text-align:center;
+    background-color: #fffaf3;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgb(176, 191, 192);
+   
+} 
+
+.container h1 {
+    color:rgb(10, 10, 10);
+    font-size: 45px;
+    }
+    input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid rgba(64, 44, 5, 0.733);   
+     }
+
+.regis{
+
+    text-decoration: none;
+    color: rgb(165, 0, 0);
+}
+
+.regis:hover{
+
+    color: rgb(104, 0, 95);
+    transition: 0.7s;
+}
 
 .mapa-estados{
     fill: #E1E4E8;
