@@ -77,10 +77,19 @@ nav {
     align-items: center;
     position: relative;
     width: 100%;
-    aspect-ratio: 5 / 2;
+    aspect-ratio: 7 / 3;
     overflow: hidden;
 }
 
+#hero-border {
+    position: absolute;
+    background-color: var(--cor-fundo);
+    filter: blur(2vw);
+    bottom: -100px;
+    width: 120%;
+    aspect-ratio: 10 / 1;
+    z-index: 5;
+}
 
 #hero-doase {
     font-family: 'Arial Narrow Bold', sans-serif;
@@ -99,10 +108,10 @@ nav {
     font-weight: 300;
     letter-spacing: 5px;
     color: var(--cor-fundo);
-    font-size: 2.3vw;
+    font-size: 1.8vw;
     position: absolute;
-    bottom: 50px;
-    right: 10%;
+    bottom: 150px;
+    right: 15%;
     z-index: 4;
 }
 
