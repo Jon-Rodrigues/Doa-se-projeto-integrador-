@@ -2,8 +2,8 @@
 
 function quero_doar() { // Função para redirecionar o usuário para a página de login ou registro
 
-    window.location.href = "login_regis.html";
-}
+    window.location.href = "src/pages/login_regis.html";
+};
 
 
 // Efeito parallax na seção hero
@@ -20,6 +20,21 @@ document.addEventListener('mousemove', (e) => {
         item.style.transform = `translate(${x}px, 0px)`;
     });
 });
+
+
+// Altera o nome na seção hero
+const heroNomes = document.querySelector('#hero-nomes');
+const listaNomes= ['Amanda', 'Roooonaldo', 'Endy', 'Emily', 'Vitória', 'Mirelle', 'Guilherme', 'Jonatas'];
+let indice = 0;
+
+setInterval(() => {
+    const nomeAtual = listaNomes[indice];
+    heroNomes.innerHTML = nomeAtual;
+
+    indice = (indice + 1) % listaNomes.length;
+}, 5000);
+
+
 
 
 
