@@ -8,8 +8,12 @@
 }
 
 :root {
-    --cor-fundo: #F7F2EE;
+    --cor-fundo: #f3f7ee;
     
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
