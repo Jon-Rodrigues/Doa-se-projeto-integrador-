@@ -11,23 +11,10 @@
     --cor-primaria: #B0846C;
 }
 
-body::-webkit-scrollbar {
-    width: 8px;
+::-webkit-scrollbar {
     background: transparent;
 }
 
-body::-webkit-scrollbar-track {
-    background: transparent;
-    display: none;
-}
-
-body::-webkit-scrollbar-track-piece{
-    background: transparent;
-}
-
-body::-webkit-scrollbar-corner {
-    background: transparent;
-}
 
 
 ::-webkit-scrollbar-thumb {
@@ -42,6 +29,7 @@ html {
 body {
     margin: 0;
     background-color: var(--cor-fundo);
+    overflow: overlay;
 }
 
 /* ==========================================================================
