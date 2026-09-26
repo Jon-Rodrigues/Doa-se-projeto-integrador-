@@ -4,12 +4,35 @@
 *{
     margin: 0;
     padding: 0;
-    
 }
 
 :root {
     --cor-fundo: #f3f7ee;
-    
+    --cor-primaria: #B0846C;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+    display: none;
+}
+
+body::-webkit-scrollbar-track-piece{
+    background: transparent;
+}
+
+body::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--cor-primaria);
+    border-radius: 10px;
 }
 
 html {
@@ -30,7 +53,7 @@ body {
     display: flex;
     justify-content: center;
     list-style: none;
-    gap: 20px;
+    gap: 100px;
 
 }
 
@@ -61,14 +84,14 @@ nav {
     z-index: 1000;
 }
 
-.image-hero-bg {
+#image-hero-bg {
     width: 120%;
     height: auto;
     filter: brightness(50%) blur(5px);
     z-index: 1;
 }
 
-.image-hero-person {
+#image-hero-person {
     width: 30%;
     height: auto;
     position: absolute;
@@ -213,7 +236,39 @@ nav.nav-scrolled .hero-nav-bar {
 }
 
 /* ==========================================================================
-   5. COMPONENTES GERAIS E MAPA
+   5. NOSSO IMPACTOS
+   ========================================================================== */
+
+#titulo-impactos{
+    color: var(--cor-primaria);
+    text-align: center;
+}
+
+#impactos-container {
+    max-width: 700px;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 5px;
+    justify-items: center;
+    background-color: var(--cor-primaria);
+}
+
+.icon-impactos {
+    width: 40px;
+    height: auto;
+    margin: 10px;
+    color: red;
+}
+
+.num-impactos {
+    align-content: center;
+}
+
+
+/* ==========================================================================
+   6. COMPONENTES GERAIS E MAPA
    ========================================================================== */
 
 .container{
@@ -258,6 +313,6 @@ nav.nav-scrolled .hero-nav-bar {
 }
 
 .mapa-estados:hover {
-    fill: #d9bcad;
+    fill: var(--cor-primaria);
     cursor: pointer;
 }
