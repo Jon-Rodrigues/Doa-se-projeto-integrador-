@@ -24,14 +24,21 @@ document.addEventListener('mousemove', (e) => {
 
 // Altera o nome na seção hero
 const heroNomes = document.querySelector('#hero-nomes');
-const listaNomes= ['Amanda', 'Roooonaldo', 'Endy', 'Emily', 'Vitória', 'Mirelle', 'Guilherme', 'Jonatas'];
+const heroImagePerson = document.querySelector('#image-hero-person');
+const heroImagebg = document.querySelector('#image-hero-bg');
+const listaNomes= ['Nome1', 'Nome2'];
 let indice = 0;
+let imagemIndice = 1;
+
 
 setInterval(() => {
     const nomeAtual = listaNomes[indice];
     heroNomes.innerHTML = nomeAtual;
+    heroImagePerson.src = `src/assets/images/hero/hero-person-0${imagemIndice}.webp`;
+    heroImagebg.src = `src/assets/images/hero/hero-bg-0${imagemIndice}.webp`;
 
     indice = (indice + 1) % listaNomes.length;
+    imagemIndice= indice + 1;
 }, 5000);
 
 
