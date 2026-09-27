@@ -13,7 +13,7 @@ document.addEventListener('mousemove', (e) => {
     const mouseX = e.clientX / window.innerWidth - 0.5;
 
     parallax.forEach((item) => {
-        const velocidade = Number(item.dataset.speed);
+        const velocidade = Number(item.dataset.vel);
 
         const x = mouseX * velocidade;
 
@@ -43,14 +43,11 @@ setInterval(() => {
 
 
 
-
-
 // Muda cor da barra de navegação quando entra ou sai na seção hero
 const heroSection = document.querySelector('.hero-section');
 const nav = document.querySelector('nav');
 
-const observer = new IntersectionObserver(
-    ([entry]) => {
+const observerHero = new IntersectionObserver(([entry]) => {
         nav.classList.toggle('nav-scrolled', !entry.isIntersecting);
     },
     {
@@ -58,5 +55,40 @@ const observer = new IntersectionObserver(
         rootMargin: `-${nav.offsetHeight}px 0px 0px 0px`
     }
 );
+observerHero.observe(heroSection);
 
-observer.observe(heroSection);
+
+// ativa animação de contagem da seção impactos ao localizar item da animação
+const numImpacto = document.querySelector(".num-impactos");
+const numImpactoObsever = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animacaoContagem();
+            numImpactoObsever.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.5
+});
+numImpactoObsever.observe(numImpacto);
+
+
+// animação de contagem da seção impactos
+function animacaoContagem() {
+    const animContagem = document.querySelectorAll(".num-impactos");
+    let intervalo = 1000;
+
+    animContagem.forEach((item) => {
+        let valorInicial = 0;
+        let valorFinal = parseInt(item.getAttribute("data-val"));
+        let sufixo = item.getAttribute("data-sufixo") || "";
+        let duracao = Math.max(Math.floor(intervalo / valorFinal), 10); // evita duracao = 0
+        let contagem = setInterval(function () {
+            valorInicial += 1;
+            item.textContent = "+" + valorInicial + sufixo;
+            if (valorInicial == valorFinal) {
+                clearInterval(contagem);
+            }
+        }, duracao);
+    });
+}
