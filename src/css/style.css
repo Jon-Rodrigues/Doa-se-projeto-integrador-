@@ -11,15 +11,17 @@
 
 :root {
     --cor-fundo: #F7F7F8;
+    --cor-fundo-e: #E1E4E8;
     --cor-primaria: #D5B7A0;
     --cor-fonte-padrão: #2B2B2C;
 }
 
 
 ::-webkit-scrollbar {
-    background: transparent;
     width: 12px;
+    transition: transform 0.5s ease-in-out;
 }
+
 
 ::-webkit-scrollbar-track {
     background: #1b1b1b;
@@ -29,6 +31,11 @@
     background-color: var(--cor-primaria);
     border-radius: 10px;
     border: 4px solid #1b1b1b;
+}
+
+::selection {
+    color: black;
+    background: #dac4b2;
 }
 
 html {
@@ -185,9 +192,9 @@ nav.nav-scrolled .hero-nav-bar {
 
 #o-que-doar {
     
-    display: flex;
+    display: absolute;
     flex-direction: row;
-    align-items: center;
+    align-items: right;
     gap: 40px;
     width: 100%;
     max-width: 1000px;
@@ -211,13 +218,14 @@ nav.nav-scrolled .hero-nav-bar {
 .banner_box {
     grid-column: 2;
     grid-row: 1 / span 6;
-    display: flex;
+    display: absolute;
     width: 100%;
     background-color: #fffaf3;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 5px 20px rgb(17, 163, 173);
     min-height: 200px;
+    right: 0px;
 }
 
 .banner_content {
@@ -355,13 +363,42 @@ nav.nav-scrolled .hero-nav-bar {
     transition: 0.7s;
 }
 
+#mapa-info {
+    position: absolute;
+    left: 10%;
+    font-family: 'fira sans';
+    font-size: 1.3vw;
+    color: var(--cor-fonte-padrão);
+}
+
+#sigla-mapa {
+    font-family: 'Arial Narrow Bold', sans-serif;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0) 30%, var(--cor-fundo-e) 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 900;
+    font-size: 18vw;
+    position: absolute;
+}
+
+#container-estado-info {
+    position: relative;
+    display: flex;
+    top: 270px;
+}
+
+.text-mapa-info-destaque {
+    color: var(--cor-primaria);
+}
+
 #mapa {
     position: absolute;
     right: 10%;
 }
 
 .mapa-estados{
-    fill: #E1E4E8;
+    fill: var(--cor-fundo-e);
     scale: 100%;
     transition: transform 0.1s ease-in;
     transition: transform 0.2s ease-out;
