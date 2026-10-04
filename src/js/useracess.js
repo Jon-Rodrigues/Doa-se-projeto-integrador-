@@ -92,3 +92,18 @@ function animacaoContagem() {
         }, duracao);
     });
 }
+
+
+// Tela de loafing enquanto o site garrega
+const loadingScreen = document.getElementById("loading-screen");
+const startTime = Date.now();
+
+window.addEventListener("load", function () {
+    const minimumTime = 3000;
+    const elapsedTime = Date.now() - startTime;
+    const remainingTime = Math.max(0, minimumTime - elapsedTime);
+
+    setTimeout(() => {
+        loadingScreen.classList.add("hidden");
+    }, remainingTime);
+});
