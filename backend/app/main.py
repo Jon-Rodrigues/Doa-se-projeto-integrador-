@@ -38,7 +38,7 @@ def criar_ong(dados: OngIn, db: Session = Depends(get_db)):
         nome_fantasia = dados.nome_fantasia,
         razao_social = dados.razao_social,
         cnpj = dados.cnpj,
-        email= dados.email,
+        email = dados.email,
         senha_hash = gerar_hash(dados.senha),
     )
     db.add(novo)
