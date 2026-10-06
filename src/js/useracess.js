@@ -107,3 +107,129 @@ window.addEventListener("load", function () {
         loadingScreen.classList.add("hidden");
     }, remainingTime);
 });
+
+
+// Seção de como doar os itens banner.
+
+const dadosDoacao = {
+    roupas: {
+        titulo: "Roupas",
+        subtitulo: "Se veste bem, serve alguém! doe.",
+        imagem: "src/assets/images/roupas.webp",
+        detalhes: [
+            "Camisas, blazers, calças de alfaiataria, em perfeito estado.",
+            "Saias e vestidos bem estruturados.",
+            "Sapatos clássicos / calçados formais.",
+            "Peças higienizadas, isso facilita muito a distribuição.",
+            "Aceitamos bolsas sociais, pastas para documentos."
+        ]
+
+    },
+    sapatos: {
+        titulo: "Sapatos",
+        subtitulo: "Se calça bem, serve alguém! doe.",
+        imagem: "src/assets/images/sapatos.webp",
+        detalhes: [
+            "Sapatos, tênis, sandálias, botas, em bom estado, limpos e lavados.",
+            "___________________________________________________________",
+            "_________________________________________________________",
+            "___________________________________________________________",
+        ]
+    },
+    brinquedos: {
+        titulo: "Brinquedos",
+        subtitulo: "Se diverte bem, serve alguém! doe.",
+        imagem: "src/assets/images/brinquedos.webp",
+        detalhes: [
+            "Brinquedos, jogos, bonecos, em bom estado, limpos e lavados.",
+            "___________________________________________________________",
+            "_________________________________________________________",
+            "___________________________________________________________",
+        ]
+    },
+    livros: {
+        titulo: "Livros",
+        subtitulo: "Se le o bem, serve alguém! doe.",
+        imagem: "src/assets/images/livros.webp",
+        detalhes: [
+            "Livros, revistas, jornais, em bom estado, limpos e lavados.",
+            "___________________________________________________________",
+            "_________________________________________________________",
+            "___________________________________________________________",
+        ]
+    },
+    mochilas: {
+        titulo: "Mochilas",
+        subtitulo: "Se carrega bem, serve alguém! doe.",
+        imagem: "src/assets/images/mochilas.webp",
+        detalhes: [
+            "Mochilas, bolsas, em bom estado, limpos e lavados.",
+            "___________________________________________________________",
+            "_________________________________________________________",
+            "___________________________________________________________",
+        ]
+    },
+    alimentos: {
+        titulo: "Alimentos",
+        subtitulo: "Se alimenta bem, serve alguém! doe.",
+        imagem: "src/assets/images/alimentos.webp",
+        detalhes: [
+            "Alimentos não perecíveis, em bom estado, limpos e lavados.",
+            "___________________________________________________________",
+            "_________________________________________________________",
+            "___________________________________________________________",
+        ]
+    }
+};
+
+function mostrarDoacao(categoria) {
+
+    const dados = dadosDoacao[categoria];
+    if (!dados) return;
+
+    const buttons = document.querySelectorAll('.btn-o-que-doar');
+    buttons.forEach(btn => {
+
+        const onClickAttr = btn.getAttribute('onclick');
+        if (onClickAttr && onClickAttr.includes(categoria)) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+
+    });
+
+    const bannerContent = document.querySelector('.banner_content');
+    const titulo = document.querySelector('#banner_title');
+    const subtitulo = document.querySelector('#banner_txt');
+    const lista = document.querySelector('#banner_list');
+    lista.innerHTML = dados.detalhes.map((item) => `<li>${item}</li>`).join('');
+
+    if (bannerContent) {
+        bannerContent.style.opacity = '0';
+        bannerContent.style.transform = 'translateX(10px)';
+        bannerContent.style.transition = 'all 0.2s ease-in-out';
+
+        setTimeout(() => {
+            if (titulo) titulo.textContent = dados.titulo;
+            if (subtitulo) subtitulo.textContent = dados.subtitulo;
+
+            const imgEl = document.querySelector('#banner_img');
+            if (imgEl && dados.imagem) {
+                imgEl.src = dados.imagem;
+                imgEl.alt = dados.titulo;
+            }
+
+            if (lista) {
+                lista.innerHTML = dados.detalhes
+                    .map((item) => `
+`)
+                    .join('');
+            }
+
+            bannerContent.style.opacity = '1';
+            bannerContent.style.transform = 'translateX(0)';
+        }, 200);
+    }
+
+}
