@@ -1,16 +1,9 @@
 # Doa-se-projeto-integrador-
+Sistema web desenvolvido como projeto integrador para gerenciamento de doações, conectando usuários e organizações não governamentais (ONGs).
 
 Dimensão imagem Hero
-hero-bg:
-```bash
-    largura: 1920px
-    altura: 1279px
-```
-hero-person:
-```bash
-    largura: 1334px
-    altura: 2000px
-```
+- hero-bg: 1920 x 1279 px
+- hero-person: 1334 x 2000 px
 
 ## Back-end
 
@@ -18,18 +11,23 @@ API desenvolvida com Python, FastAPI e SQLAlchemy.
 
 ### Pré-requisitos
 - Python 3.10 ou superior
+- SQL Server
+- ODBC Driver 18 for SQL Server
+- Git
 
+### Configuração do banco de dados
+Crie um arquivo `.env` na raiz do projeto e configure a variável `DATABASE_URL` com os dados da sua instalação do SQL Server.
+  
 ### Como rodar
 
-1. Entre na pasta do back-end:
+1. Crie o ambiente virtual:
 ```bash
-   cd backend
+python -m venv venv
 ```
 
-2. Crie e ative o ambiente virtual:
+2. Ative o ambiente virtual:
 ```bash
-   python -m venv venv
-   source venv/bin/activate      # Windows: venv\Scripts\activate
+venv\Scripts\activate
 ```
 
 3. Instale as dependências:
@@ -39,12 +37,12 @@ API desenvolvida com Python, FastAPI e SQLAlchemy.
 
 4. Inicie o servidor:
 ```bash
-   uvicorn app.main:app --reload
+   uvicorn app.main:app --reload --app-dir backend
 ```
 
 5. Acesse a documentação interativa da API em
    `http://127.0.0.1:8000/docs`
 
 ### Banco de dados
-Por enquanto o projeto usa SQLite local para testes (arquivo `teste.db`).
-A URL do banco real é definida pela variável de ambiente `DATABASE_URL`.
+O projeto usa SQL Server como banco de dados.
+A conexão com o banco é configurada pela variável `DATABASE_URL` definida no arquivo `.env`.
