@@ -212,6 +212,7 @@ nav.nav-scrolled .hero-nav-bar {
 }
 
 .icon-o-que-doar {
+  
     display: grid;
     grid-template-columns: 90px minmax(0, 1fr);
     grid-template-rows: repeat(6, auto);
@@ -222,20 +223,23 @@ nav.nav-scrolled .hero-nav-bar {
 
 #o-que-doar {
     
-    display: absolute;
+    display: flex;
     flex-direction: row;
-    align-items: right;
+    align-items: center;
     gap: 40px;
     width: 100%;
     max-width: 1000px;
-    margin: 40px auto;
+    margin-left: 20px;
     padding: 20px;
     box-sizing: border-box;
 
 }
 
 .icon-o-que-doar img {
-    display: block;
+    
+    flex-direction: column;
+    width: auto;
+    
 }
 
 .icon-o-que-doar img:hover {
@@ -245,17 +249,17 @@ nav.nav-scrolled .hero-nav-bar {
     text-align: center;
 }
 
-.banner_box {
+ .banner_box {
     grid-column: 2;
     grid-row: 1 / span 6;
-    display: absolute;
+    display: flex;
     width: 100%;
     background-color: #fffaf3;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgb(17, 163, 173);
+    box-shadow: var(--cor-fonte-padrão) 2px 2px 8px;
     min-height: 200px;
-    right: 0px;
+    min-width: 1155px;
 }
 
 .banner_content {
@@ -273,9 +277,24 @@ nav.nav-scrolled .hero-nav-bar {
 
     font-size: 24px;
     font-weight: bold;
+    color: var(--cor-primaria);
     
 }
 
+.banner_back{
+    
+    grid-column: 1;
+    grid-row: 1 / span 6;
+    display: flex;
+    width: 100%;
+    background-color: #fffaf3;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--cor-fonte-padrão) 2px 2px 8px;
+    min-height: 200px;
+    transform: translateX(-73px);    
+
+}
 /* ==========================================================================
    5. NOSSO IMPACTOS
    ========================================================================== */
