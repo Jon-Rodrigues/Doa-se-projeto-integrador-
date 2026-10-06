@@ -27,7 +27,10 @@ python -m venv venv
 
 2. Ative o ambiente virtual:
 ```bash
-venv\Scripts\activate
+cd backend
+venv\Scripts\activate ou source venv/bin/activate
+
+# deactivate para desativar
 ```
 
 3. Instale as dependências:
