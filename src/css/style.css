@@ -208,81 +208,77 @@ nav.nav-scrolled .hero-nav-bar {
    ========================================================================== */
 
 .btn-o-que-doar{
+    background-color: transparent;
     border: none;
+    margin-bottom: 30px;
 }
 
 .icon-o-que-doar {
-  
-    display: grid;
-    grid-template-columns: 90px minmax(0, 1fr);
-    grid-template-rows: repeat(6, auto);
     align-items: center;
-    gap: 20px;
-    width: 100%;
+    width: 30px;
+    margin-left: 2.8vw;
 }
 
 #o-que-doar {
-    
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 40px;
     width: 100%;
-    max-width: 1000px;
-    margin-left: 20px;
-    padding: 20px;
     box-sizing: border-box;
-
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 .icon-o-que-doar img {
-    
-    flex-direction: column;
-    width: auto;
-    
-}
-
-.icon-o-que-doar img:hover {
-    transform: scale(1.2);
+    transform: scale(1);
     transition: 0.5s ease-in-out;
     font-size: 16px;
     text-align: center;
 }
 
- .banner_box {
+.icon-o-que-doar img:hover {
+    transform: scale(1.5);
+    transition: 0.2s ease-in-out;
+    font-size: 16px;
+    text-align: center;
+}
+
+.banner-box-left {
+    left: 0;
+    width: 22vw;
+    height: 300px;
+    background-color: var(--cor-fundo-e);
+    border-radius: 10px;
+}
+
+.banner-box-right {
+    position: absolute;
+    right: 0;
     grid-column: 2;
     grid-row: 1 / span 6;
     display: flex;
-    width: 100%;
-    background-color: #fffaf3;
-    border-radius: 20px;
+    width: 70vw;
+    height: 300px;
+    background-color: var(--cor-fundo-e);
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: var(--cor-fonte-padrão) 2px 2px 8px;
-    min-height: 200px;
-    min-width: 1155px;
 }
 
 .banner_content {
-
+    position: absolute;
+    right: 20vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     padding: 20px;
     text-align: center;
 }
 
 #banner_title{
-
-
     font-size: 24px;
     font-weight: bold;
     color: var(--cor-primaria);
-    
 }
 
 .banner_back{
-    
     grid-column: 1;
     grid-row: 1 / span 6;
     display: flex;
@@ -292,9 +288,9 @@ nav.nav-scrolled .hero-nav-bar {
     overflow: hidden;
     box-shadow: var(--cor-fonte-padrão) 2px 2px 8px;
     min-height: 200px;
-    transform: translateX(-73px);    
-
+    transform: translateX(-73px);
 }
+
 /* ==========================================================================
    5. NOSSO IMPACTOS
    ========================================================================== */
