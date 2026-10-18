@@ -5,6 +5,51 @@ function quero_doar() { // Função para redirecionar o usuário para a página 
     window.location.href = "src/pages/login_regis.html";
 };
 
+// Abre e fecha a sublista de doações no nav
+const itemDoacoes = document.querySelector('.nav-links li:has(#sublista-doar)');
+const sublist = document.querySelector('#sublista-doar');
+
+function abrirSublista() {
+    sublist.classList.toggle("ativo");
+}
+
+document.addEventListener('click', function(event) {
+    if (!itemDoacoes.contains(event.target)) {
+        sublist.classList.remove("ativo");
+    }
+});
+
+
+
+
+// Abre e fecha o pop up do usuario
+const perfil = document.querySelector('#user');
+
+function user_perfil() {
+
+    perfil.classList.toggle("ativo");
+};
+
+function user_perfil_b() {
+
+    perfil.classList.remove("ativo")
+}
+
+// Abre e fecha as configurações do usuario
+const userSetting = document.querySelector('#user-setting');
+
+function addUserSetting() {
+
+    userSetting.classList.add("ativo");
+};
+
+function removeUserSetting() {
+
+    userSetting.classList.remove("ativo");
+};
+
+
+
 
 // Efeito parallax na seção hero
 const parallax = document.querySelectorAll('.parallax');
@@ -94,7 +139,7 @@ function animacaoContagem() {
 }
 
 
-// Tela de loafing enquanto o site garrega
+// Tela de loafing enquanto o site carrega
 const loadingScreen = document.getElementById("loading-screen");
 const startTime = Date.now();
 
@@ -232,4 +277,23 @@ function mostrarDoacao(categoria) {
         }, 200);
     }
 
+}
+
+
+
+const estado = document.querySelectorAll('.mapa-estados');
+const sigla = document.querySelector('#sigla-mapa');
+
+function Estado(elemento) {
+
+    const estadoId = elemento.id;
+    sigla.innerHTML = estadoId;
+
+    const limparEstado = document.querySelector('.mapa-click');
+
+    if (limparEstado) {
+        limparEstado.classList.replace("mapa-click", "mapa-estados");
+    }
+
+    elemento.classList.replace("mapa-estados", "mapa-click");
 }
