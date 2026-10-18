@@ -12,6 +12,7 @@
 :root {
     --cor-fundo: #F7F7F8;
     --cor-fundo-e: #E1E4E8;
+    --cor-fundo-f: rgb(205, 210, 214);
     --cor-primaria: #D5B7A0;
     --cor-fonte-padrão: #2B2B2C;
 }
@@ -71,7 +72,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1001;
+    z-index: 5000;
     opacity: 1;
     visibility: visible;
     transition: opacity 0.6s ease, visibility 0.7s ease;
@@ -89,28 +90,186 @@ body {
    ========================================================================== */
 
 .nav-links{
-
     display: flex;
     justify-content: center;
     list-style: none;
     gap: 100px;
+    margin-top: 1%;
+}
 
+#login-icon {
+    position: absolute;
+    right: 10%;
 }
 
 .nav-links a{
-
     text-decoration: none;
     color: var(--cor-fundo);
     mix-blend-mode: difference;
 }
 
 .nav-links a:hover{
-
     font-size: 17px;
     color: var(--cor-primaria);
     transition: 0.7s;
-
+    cursor: pointer;
 }
+
+
+#sublista-doar {
+    display: none;
+}
+
+#sublista-doar.ativo {
+    display: block;
+}
+
+#login-icon {
+    width: 2%;
+    aspect-ratio: 1 / 1;
+}
+
+#btn-user {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 100%;
+}
+
+#user {
+    display: none;
+}
+
+#user.ativo {
+    display: block;
+}
+
+#menu-user {
+    position: fixed;
+    display: flex;
+    width: 300px;
+    height: 50%;
+    border-radius: 3%;
+    background-color: var(--cor-fundo);
+    overflow: hidden;
+    z-index: 1002;
+    top: 10%;
+    right: 10%;
+}
+
+#user-screen {
+    position: fixed;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(22, 21, 21, 0.302);
+    z-index: 1001;
+}
+
+#user-banner {
+    display: flex;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 150px;
+    width: 100%;
+    background-color: var(--cor-primaria);
+}
+
+#user-photo {
+    width: 310px;
+    position: absolute;
+    top: -40px;
+}
+
+#user-info-containder {
+    position: absolute;
+}
+
+.user-info {
+    font-family: 'fira sans';
+    margin-left: 20px;
+    margin-top: 3px;
+    letter-spacing: 0.5px;
+    color: var(--cor-fundo);
+}
+
+#user-info-nome {
+    font-weight: 500;
+    bottom: 25%;
+}
+
+#user-info-cad, #user-info-tipo, #user-info-mot {
+    font-size: 14px;
+}
+
+#user-blur {
+    width: 100%;
+    height: 170px;
+    bottom: 0;
+    position: absolute;
+    background: #1b1b1b6f;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+#user-setting-icon {
+    fill: var(--cor-fundo);
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 5%;
+    top: 3%;
+    cursor: pointer;
+}
+
+#btn-user-doacao {
+    position: absolute;
+    bottom: 20%;
+    width: 100%;
+    font-family: 'fira sans';
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    background: transparent;
+    border: none;
+    color: var(--cor-fundo);
+}
+
+#btn-user-doacao:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#user-setting {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--cor-fundo);
+    display: none;
+}
+
+#user-setting.ativo {
+    display: block;
+}
+
+.user-setting-list {
+    position: absolute;
+    bottom: 20px;
+}
+
+.user-setting-list li{
+    margin: 40px;
+}
+
+#user-setting-icon-back {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 5%;
+    top: 3%;
+    fill: var(--cor-fonte-padrão);
+    cursor: pointer;
+}
+
 
 /* ==========================================================================
    3. HERO SECTION
@@ -121,7 +280,7 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 1003;
 }
 
 #image-hero-bg {
@@ -450,6 +609,42 @@ nav.nav-scrolled .hero-nav-bar {
 }
 
 .mapa-estados:hover {
+    fill: var(--cor-fundo-f);
+    cursor: pointer;
+}
+
+.mapa-click {
     fill: var(--cor-primaria);
     cursor: pointer;
+}
+
+#capa {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+#capa-user {
+    background-color: var(--cor-fundo-e);
+    width: 90vw;
+    height: 300px;
+    border-radius: 20px;
+}
+
+#foto-user {
+    width: 150px;
+    height: 150px;
+    background-color: #2B2B2C;
+    position: absolute;
+    border-radius: 100%;
+    left: 10%;
+    justify-content: center;
+}
+
+#foto-user-nav {
+    width: 50px;
+    height: 50px;
+    background-color: var(--cor-fundo-e);
 }
