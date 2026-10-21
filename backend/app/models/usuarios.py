@@ -18,7 +18,6 @@ class Usuario(Base):
 class UsuarioTipo(Base):
     __tablename__ = "usuarios_tipos"
 
-    # chave primária composta: o mesmo tipo não repete para o mesmo usuário
     id_usuario = Column(Integer, ForeignKey("usuarios.id_usuario"), primary_key=True)
     id_tipo_usuario = Column(Integer, ForeignKey("tipos_usuario.id_tipo_usuario"), primary_key=True)
 

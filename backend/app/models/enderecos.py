@@ -13,5 +13,5 @@ class Endereco(Base):
     cidade = Column(String(80), nullable=False)
     estado = Column(CHAR(2), nullable=False)
     cep = Column(CHAR(8), nullable=False)
-    latitude = Column(Numeric(9, 6), nullable=True)   # usado pelos pontos de coleta
+    latitude = Column(Numeric(9, 6), nullable=True)
     longitude = Column(Numeric(9, 6), nullable=True)

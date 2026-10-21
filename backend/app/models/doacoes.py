@@ -29,8 +29,8 @@ class ItemDoacao(Base):
     condicao = Column(String(30), nullable=True)
     tamanho = Column(String(10), nullable=True)
     genero = Column(String(15), nullable=True)
-    peso_kg = Column(Numeric(8, 2), nullable=True)   # alimentos
-    validade = Column(Date, nullable=True)           # alimentos
+    peso_kg = Column(Numeric(8, 2), nullable=True)
+    validade = Column(Date, nullable=True)
     descricao = Column(String(300), nullable=True)
     foto_url = Column(String(300), nullable=True)
 

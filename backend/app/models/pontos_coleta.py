@@ -22,6 +22,6 @@ class HorarioFuncionamento(Base):
 
     id_horario = Column(Integer, primary_key=True)
     id_ponto_coleta = Column(Integer, ForeignKey("pontos_coleta.id_ponto_coleta"), nullable=False)
-    dia_semana = Column(SmallInteger, nullable=False)  # 1=domingo ... 7=sabado
+    dia_semana = Column(SmallInteger, nullable=False)
     hora_abertura = Column(Time, nullable=False)
     hora_fechamento = Column(Time, nullable=False)

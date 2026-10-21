@@ -7,7 +7,6 @@ class Ong(Base):
     __tablename__ = "ongs"
 
     id_ong = Column(Integer, primary_key=True)
-    # e-mail, senha e telefone ficam no Usuario da ONG
     id_usuario = Column(Integer, ForeignKey("usuarios.id_usuario"), unique=True, nullable=False)
     nome_fantasia = Column(String(150), nullable=False)
     razao_social = Column(String(150), nullable=False)
@@ -20,9 +19,8 @@ class Ong(Base):
     id_endereco = Column(Integer, ForeignKey("enderecos.id_endereco"), nullable=True)
     data_inicio_cadastro = Column(DATETIME2, nullable=False, server_default=func.sysdatetime())
     data_conclusao_cadastro = Column(DATETIME2, nullable=True)
-    # Em analise, Aprovada, Rejeitada, Suspensa
     status = Column(String(15), nullable=False, server_default="Em analise")
-    motivo = Column(String(300), nullable=True)  # se rejeitada ou suspensa
+    motivo = Column(String(300), nullable=True)
 
 
 class ResponsavelOng(Base):
@@ -42,13 +40,12 @@ class DocumentoOng(Base):
 
     id_documento = Column(Integer, primary_key=True)
     id_ong = Column(Integer, ForeignKey("ongs.id_ong"), nullable=False)
-    tipo_documento = Column(String(30), nullable=False)  # Estatuto Social ou Comprovante de endereco
+    tipo_documento = Column(String(30), nullable=False)
     numero_documento = Column(String(50), nullable=True)
-    arquivo_pdf = Column(String(300), nullable=False)    # caminho/URL do arquivo
+    arquivo_pdf = Column(String(300), nullable=False)
     data_emissao = Column(Date, nullable=True)
     data_envio = Column(DATETIME2, nullable=False, server_default=func.sysdatetime())
     data_conclusao = Column(DATETIME2, nullable=True)
     validade = Column(Date, nullable=True)
-    # Em analise, Aprovado, Rejeitado
     status = Column(String(15), nullable=False, server_default="Em analise")
     motivo = Column(String(300), nullable=True)

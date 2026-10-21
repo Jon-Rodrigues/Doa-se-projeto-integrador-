@@ -1,4 +1,3 @@
-# Importa todos os models para o Base conhecer as 17 tabelas antes do create_all
 from app.models.apoio import TipoUsuario, Categoria, StatusDoacao, EtapaDoacao
 from app.models.enderecos import Endereco
 from app.models.usuarios import Usuario, UsuarioTipo, PessoaFisica, PessoaJuridica

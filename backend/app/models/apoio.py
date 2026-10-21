@@ -6,14 +6,14 @@ class TipoUsuario(Base):
     __tablename__ = "tipos_usuario"
 
     id_tipo_usuario = Column(Integer, primary_key=True)
-    nome = Column(String(30), unique=True, nullable=False)  # Doador, Voluntario, Administrador
+    nome = Column(String(30), unique=True, nullable=False)
 
 
 class Categoria(Base):
     __tablename__ = "categorias"
 
     id_categoria = Column(Integer, primary_key=True)
-    nome = Column(String(40), unique=True, nullable=False)  # Roupa, Sapato, Brinquedo...
+    nome = Column(String(40), unique=True, nullable=False)
 
 
 class StatusDoacao(Base):

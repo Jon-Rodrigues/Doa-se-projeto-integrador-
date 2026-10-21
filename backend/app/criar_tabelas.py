@@ -1,6 +1,5 @@
-# Rode na pasta backend:  python -m app.criar_tabelas
 from app.database import Base, engine, SessionLocal
-import app.models  # registra as 17 tabelas no Base
+import app.models
 from app.models import TipoUsuario, Categoria, StatusDoacao, EtapaDoacao
 
 TIPOS = ["Doador", "Voluntario", "Administrador"]
@@ -16,10 +15,9 @@ def popular_se_vazia(db, modelo, objetos):
         db.add_all(objetos)
 
 
-# 1) cria as tabelas que ainda não existem
 Base.metadata.create_all(bind=engine)
 
-# 2) dados iniciais das tabelas de apoio
+
 with SessionLocal() as db:
     popular_se_vazia(db, TipoUsuario, [TipoUsuario(nome=n) for n in TIPOS])
     popular_se_vazia(db, Categoria, [Categoria(nome=n) for n in CATEGORIAS])
