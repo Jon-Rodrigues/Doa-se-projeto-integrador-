@@ -175,10 +175,10 @@ const dadosDoacao = {
         subtitulo: "Se calça bem, serve alguém! doe.",
         imagem: "src/assets/images/sapatos.webp",
         detalhes: [
-            "Sapatos, tênis, sandálias, botas, em bom estado, limpos e lavados.",
-            "___________________________________________________________",
-            "_________________________________________________________",
-            "___________________________________________________________",
+            "Sapatos, tênis, sandálias, botas, em bom estado, limpos e lavados; ",
+            "Chuteiras de futebol, acessórios; ",
+            "Os itens acima nao podem estar descolando ou rasgados; ",
+            "Doe com consciência prezando sempre a solidariedade e amor. ",
         ]
     },
     brinquedos: {
@@ -186,10 +186,10 @@ const dadosDoacao = {
         subtitulo: "Se diverte bem, serve alguém! doe.",
         imagem: "src/assets/images/brinquedos.webp",
         detalhes: [
-            "Brinquedos, jogos, bonecos, em bom estado, limpos e lavados.",
-            "___________________________________________________________",
-            "_________________________________________________________",
-            "___________________________________________________________",
+            "Brinquedos educativos: blocos de montar, brinquedos de encaixe didático; ",
+            "Jogos de raciocínio: quebra-cabeças, tabuleiros, jogos de cartas; ",
+            "Bonecas, carrinhos, casinhas; ",
+            "Brinquedos de ar livre: bola, bicicleta, patins, em estado bom para uso. ",
         ]
     },
     livros: {
@@ -197,10 +197,10 @@ const dadosDoacao = {
         subtitulo: "Se le o bem, serve alguém! doe.",
         imagem: "src/assets/images/livros.webp",
         detalhes: [
-            "Livros, revistas, jornais, em bom estado, limpos e lavados.",
-            "___________________________________________________________",
-            "_________________________________________________________",
-            "___________________________________________________________",
+            "Obras literárias (Ficção, romance, crônicas); ",
+            "Livros infantis e infojuvenis; ",
+            "Dicionários, enciclopédia, obras de referências atualizadas; ",
+            "Materias de apoio pedagógico e livros didáticos. ",
         ]
     },
     mochilas: {
@@ -208,10 +208,10 @@ const dadosDoacao = {
         subtitulo: "Se carrega bem, serve alguém! doe.",
         imagem: "src/assets/images/mochilas.webp",
         detalhes: [
-            "Mochilas, bolsas, em bom estado, limpos e lavados.",
-            "___________________________________________________________",
-            "_________________________________________________________",
-            "___________________________________________________________",
+            "Mochilas, bolsas, em bom estado, limpos e lavados; ",
+            "Mochilas infantis, de rodinha, entre outros; ",
+            "pastas sociais; ",
+            "Sempre prezar ao doar algo, doe em bom estado",
         ]
     },
     alimentos: {
@@ -219,10 +219,10 @@ const dadosDoacao = {
         subtitulo: "Se alimenta bem, serve alguém! doe.",
         imagem: "src/assets/images/alimentos.webp",
         detalhes: [
-            "Alimentos não perecíveis, em bom estado, limpos e lavados.",
-            "___________________________________________________________",
-            "_________________________________________________________",
-            "___________________________________________________________",
+            "Alimentos não perecíveis, em boa conserva; ",
+            "Produtos com longa data de vencimento; ",
+            "Não doar alimentos próximo ao vencimento ou já aberto",
+            "Seja cuidadoso com alimento que irá doar",
         ]
     }
 };
@@ -267,8 +267,8 @@ function mostrarDoacao(categoria) {
 
             if (lista) {
                 lista.innerHTML = dados.detalhes
-                    .map((item) => `
-`)
+                    .map((item) => `<li>${item}</li>`) 
+
                     .join('');
             }
 
