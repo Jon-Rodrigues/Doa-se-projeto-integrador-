@@ -84,6 +84,22 @@ body {
     pointer-events: none;
 }
 
+label {
+    padding: 0px;
+    padding-inline: 5px;
+    font-size: 15px;
+    background-color: var(--cor-fundo);
+    color: gray;
+    position: relative;
+    top: 3px;
+    left: 13px;
+    pointer-events: none;
+}
+
+input {
+    background-color: var(--cor-fundo);
+}
+
 
 /* ==========================================================================
    2. NAVEGAÇÃO
@@ -156,7 +172,7 @@ body {
     right: 10%;
 }
 
-#user-screen {
+.user-screen {
     position: fixed;
     backdrop-filter: blur(10px);
     width: 100%;
@@ -268,6 +284,29 @@ body {
     top: 3%;
     fill: var(--cor-fonte-padrão);
     cursor: pointer;
+}
+
+.login-screen {
+    position: fixed;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(22, 21, 21, 0.302);
+    z-index: 1001;
+}
+
+
+#login-pop {
+    position: fixed;
+    display: flex;
+    width: 400px;
+    height: 30%;
+    border-radius: 3%;
+    background-color: var(--cor-fundo);
+    overflow: hidden;
+    z-index: 1002;
+    top: 10%;
+    right: 10%;
 }
 
 
