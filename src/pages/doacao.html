@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/doacao.css">
     <script src="../js/doacao.js" defer></script>
     <title>Doa-se (Nova Doação)</title>
@@ -36,427 +35,429 @@
 
         <p id="vazio" class="vazio">Sua lista para doação esta vazia</p>
 
-        <div id="lista" oninput="atualizas()">
+        <form id="formDoacao" onsubmit="enviar(event)">
+            <div id="lista" oninput="atualizas()">
 
-            <!-- ROUPAS -->
-            <section class="grupo" id="grupo-roupa" hidden>
-                <button class="grupo-titulo" onclick="alternar(this)">
-                    <i class="icone roupa"></i>
-                    <span><b>Roupas</b> <small class="sub"></small></span>
-                    <i class="icon seta grupo-seta"></i>
-                </button>
-                <button class="botao-icone" onclick="removerTipo(this)" aria-label="Remover Roupas"><i class="icone lixeira"></i></button>
+                <!-- ROUPAS -->
+                <section class="grupo" id="grupo-roupa" hidden>
+                    <button type="button" class="grupo-titulo" onclick="alternar(this)">
+                        <i class="icone roupa"></i>
+                        <span><b>Roupas</b> <small class="sub"></small></span>
+                        <i class="icon seta grupo-seta"></i>
+                    </button>
+                    <button type="button" class="botao-icone" onclick="removerTipo(this)" aria-label="Remover Roupas"><i class="icone lixeira"></i></button>
 
-                <div class="grupo-corpo">
-                    <ul class="itens"></ul>
-                    <button class="adicionar" onclick="adicionar('roupa', false)">+ Adicionar item</button>
-                    <button class="adicionar" onclick="adicionar('roupa', true)">+ Adicionar remessa</button>
-                </div>
+                    <div class="grupo-corpo">
+                        <ul class="itens"></ul>
+                        <button type="button" class="adicionar" onclick="adicionar('roupa', false)">+ Adicionar item</button>
+                        <button type="button" class="adicionar" onclick="adicionar('roupa', true)">+ Adicionar remessa</button>
+                    </div>
 
-                <template class="campos-item">
-                    <label>Tipo *
-                        <select required data-resumo>
-                            <option value="">Selecione</option>
-                            <option>Camiseta</option>
-                            <option>Calça</option>
-                            <option>Blusa</option>
-                            <option>Bermuda ou short</option>
-                            <option>Vestido</option>
-                            <option>Saia</option>
-                            <option>Meia</option>
-                            <option>Roupa íntima</option>
-                            <option>Outros</option>
-                        </select>
-                    </label>
-                    <label>Gênero *
-                        <select required data-resumo>
-                            <option value="">Selecione</option>
-                            <option>Feminino</option>
-                            <option>Masculino</option>
-                            <option>Unissex</option>
-                        </select>
-                    </label>
-                    <label>Público *
-                        <select required>
-                            <option value="">Selecione</option>
-                            <option>Bebê</option>
-                            <option>Infantil</option>
-                            <option>Adulto</option>
-                        </select>
-                    </label>
-                    <label>Tamanho *
-                        <select required data-resumo>
-                            <option value="">Selecione</option>
-                            <option>RN</option>
-                            <option>PP</option>
-                            <option>P</option>
-                            <option>M</option>
-                            <option>G</option>
-                            <option>GG</option>
-                            <option>XG</option>
-                            <option>2</option>
-                            <option>4</option>
-                            <option>6</option>
-                            <option>8</option>
-                            <option>10</option>
-                            <option>12</option>
-                            <option>14</option>
-                            <option>16</option>
-                        </select>
-                    </label>
-                    <label>Condição *
-                        <select required>
-                            <option>Novo</option>
-                            <option selected>Usado em bom estado</option>
-                        </select>
-                    </label>
-                    <label class="largo">Observações
-                        <input type="text" placeholder="Opcional">
-                    </label>
-                </template>
+                    <template class="campos-item">
+                        <label>Tipo *
+                            <select required data-resumo>
+                                <option value="">Selecione</option>
+                                <option>Camiseta</option>
+                                <option>Calça</option>
+                                <option>Blusa</option>
+                                <option>Bermuda ou short</option>
+                                <option>Vestido</option>
+                                <option>Saia</option>
+                                <option>Meia</option>
+                                <option>Roupa íntima</option>
+                                <option>Outros</option>
+                            </select>
+                        </label>
+                        <label>Gênero *
+                            <select required data-resumo>
+                                <option value="">Selecione</option>
+                                <option>Feminino</option>
+                                <option>Masculino</option>
+                                <option>Unissex</option>
+                            </select>
+                        </label>
+                        <label>Público *
+                            <select required>
+                                <option value="">Selecione</option>
+                                <option>Bebê</option>
+                                <option>Infantil</option>
+                                <option>Adulto</option>
+                            </select>
+                        </label>
+                        <label>Tamanho *
+                            <select required data-resumo>
+                                <option value="">Selecione</option>
+                                <option>RN</option>
+                                <option>PP</option>
+                                <option>P</option>
+                                <option>M</option>
+                                <option>G</option>
+                                <option>GG</option>
+                                <option>XG</option>
+                                <option>2</option>
+                                <option>4</option>
+                                <option>6</option>
+                                <option>8</option>
+                                <option>10</option>
+                                <option>12</option>
+                                <option>14</option>
+                                <option>16</option>
+                            </select>
+                        </label>
+                        <label>Condição *
+                            <select required>
+                                <option>Novo</option>
+                                <option selected>Usado em bom estado</option>
+                            </select>
+                        </label>
+                        <label class="largo">Observações
+                            <input type="text" placeholder="Opcional">
+                        </label>
+                    </template>
 
-                <template class="campos-remessa">
-                    <label>Público *
-                        <select data-resumo>
-                            <option value="">Variados</option>
-                            <option>Bebê</option>
-                            <option>Infantil</option>
-                            <option>Adulto</option>
-                        </select>
-                    </label>
-                    <label>Condição *
-                        <select required>
-                            <option>Novo</option>
-                            <option selected>Usado em bom estado</option>
-                        </select>
-                    </label>
-                </template>
-            </section>
+                    <template class="campos-remessa">
+                        <label>Público *
+                            <select data-resumo>
+                                <option value="">Variados</option>
+                                <option>Bebê</option>
+                                <option>Infantil</option>
+                                <option>Adulto</option>
+                            </select>
+                        </label>
+                        <label>Condição *
+                            <select required>
+                                <option>Novo</option>
+                                <option selected>Usado em bom estado</option>
+                            </select>
+                        </label>
+                    </template>
+                </section>
 
-            <!-- SAPATOS -->
-            <section class="grupo" id="grupo-sapato" hidden>
-                <button class="grupo-titulo" onclick="alternar(this)">
-                    <i class="icone sapato"></i>
-                    <span><b>Sapatos</b> <small class="sub"></small></span>
-                    <i class="icon seta grupo-seta"></i>
-                </button>
-                <button class="botao-icone" onclick="removerTipo(this)" aria-label="Remover sapatos"><i class="icone lixeira"></i></button>
+                <!-- SAPATOS -->
+                <section class="grupo" id="grupo-sapato" hidden>
+                    <button type="button" class="grupo-titulo" onclick="alternar(this)">
+                        <i class="icone sapato"></i>
+                        <span><b>Sapatos</b> <small class="sub"></small></span>
+                        <i class="icon seta grupo-seta"></i>
+                    </button>
+                    <button type="button" class="botao-icone" onclick="removerTipo(this)" aria-label="Remover sapatos"><i class="icone lixeira"></i></button>
 
-                <div class="grupo-corpo">
-                    <ul class="itens"></ul>
-                    <button class="adicionar" onclick="adicionar('sapato', false)">+ Adicionar item</button>
-                    <button class="adicionar" onclick="adicionar('sapato', true)">+ Adicionar remessa</button>
-                </div>
+                    <div class="grupo-corpo">
+                        <ul class="itens"></ul>
+                        <button type="button" class="adicionar" onclick="adicionar('sapato', false)">+ Adicionar item</button>
+                        <button type="button" class="adicionar" onclick="adicionar('sapato', true)">+ Adicionar remessa</button>
+                    </div>
 
-                <template class="campos-item">
-                    <label>Tipo *
-                        <select required data-resumo>
-                            <option value="">Selecione</option>
-                            <option>Tênis</option>
-                            <option>Chinelo</option>
-                            <option>Sandália</option>
-                            <option>Bota</option>
-                            <option>Sapato social</option>
-                            <option>Sapatilha</option>
-                            <option>Outros</option>
-                        </select>
-                    </label>
-                    <label>Gênero *
-                        <select required data-resumo>
-                            <option value="">Selecione</option>
-                            <option>Feminino</option>
-                            <option>Masculino</option>
-                            <option>Unissex</option>
-                        </select>
-                    </label>
-                    <label>Público *
-                        <select required>
-                            <option value="">Selecione</option>
-                            <option>Bebê</option>
-                            <option>Infantil</option>
-                            <option>Adulto</option>
-                        </select>
-                    </label>
-                    <label>Tamanho *
-                        <input type="number" min="16" max="46" required data-resumo>
-                    </label>
-                    <label>Condição *
-                        <select required>
-                            <option>Novo</option>
-                            <option selected>Usado em bom estado</option>
-                        </select>
-                    </label>
-                    <label class="largo">Observações
-                        <input type="text" placeholder="Opcional">
-                    </label>
-                </template>
+                    <template class="campos-item">
+                        <label>Tipo *
+                            <select required data-resumo>
+                                <option value="">Selecione</option>
+                                <option>Tênis</option>
+                                <option>Chinelo</option>
+                                <option>Sandália</option>
+                                <option>Bota</option>
+                                <option>Sapato social</option>
+                                <option>Sapatilha</option>
+                                <option>Outros</option>
+                            </select>
+                        </label>
+                        <label>Gênero *
+                            <select required data-resumo>
+                                <option value="">Selecione</option>
+                                <option>Feminino</option>
+                                <option>Masculino</option>
+                                <option>Unissex</option>
+                            </select>
+                        </label>
+                        <label>Público *
+                            <select required>
+                                <option value="">Selecione</option>
+                                <option>Bebê</option>
+                                <option>Infantil</option>
+                                <option>Adulto</option>
+                            </select>
+                        </label>
+                        <label>Tamanho *
+                            <input type="number" min="16" max="46" required data-resumo>
+                        </label>
+                        <label>Condição *
+                            <select required>
+                                <option>Novo</option>
+                                <option selected>Usado em bom estado</option>
+                            </select>
+                        </label>
+                        <label class="largo">Observações
+                            <input type="text" placeholder="Opcional">
+                        </label>
+                    </template>
 
-                <template class="campos-remessa">
-                    <label>Público *
-                        <select data-resumo>
-                            <option value="">Variados</option>
-                            <option>Bebê</option>
-                            <option>Infantil</option>
-                            <option>Adulto</option>
-                        </select>
-                    </label>
-                    <label>Condição *
-                        <select required>
-                            <option>Novo</option>
-                            <option selected>Usado em bom estado</option>
-                        </select>
-                    </label>
-                </template>
-            </section>
+                    <template class="campos-remessa">
+                        <label>Público *
+                            <select data-resumo>
+                                <option value="">Variados</option>
+                                <option>Bebê</option>
+                                <option>Infantil</option>
+                                <option>Adulto</option>
+                            </select>
+                        </label>
+                        <label>Condição *
+                            <select required>
+                                <option>Novo</option>
+                                <option selected>Usado em bom estado</option>
+                            </select>
+                        </label>
+                    </template>
+                </section>
 
-            <!-- BRINQUEDOS -->
-            <section class="grupo" id="grupo-brinquedo" hidden>
-                <button class="grupo-titulo" onclick="alternar(this)">
-                    <i class="icone brinquedo"></i>
-                    <span><b>Brinquedos</b> <small class="sub"></small></span>
-                    <i class="icon seta grupo-seta"></i>
-                </button>
-                <button class="botao-icone" onclick="removerTipo(this)" aria-label="Remover brinquedos"><i class="icone lixeira"></i></button>
+                <!-- BRINQUEDOS -->
+                <section class="grupo" id="grupo-brinquedo" hidden>
+                    <button type="button" class="grupo-titulo" onclick="alternar(this)">
+                        <i class="icone brinquedo"></i>
+                        <span><b>Brinquedos</b> <small class="sub"></small></span>
+                        <i class="icon seta grupo-seta"></i>
+                    </button>
+                    <button type="button" class="botao-icone" onclick="removerTipo(this)" aria-label="Remover brinquedos"><i class="icone lixeira"></i></button>
 
-                <div class="grupo-corpo">
-                    <ul class="itens"></ul>
-                    <button class="adicionar" onclick="adicionar('brinquedo', false)">+ Adicionar item</button>
-                    <button class="adicionar" onclick="adicionar('brinquedo', true)">+ Adicionar remessa</button>
-                </div>
+                    <div class="grupo-corpo">
+                        <ul class="itens"></ul>
+                        <button type="button" class="adicionar" onclick="adicionar('brinquedo', false)">+ Adicionar item</button>
+                        <button type="button" class="adicionar" onclick="adicionar('brinquedo', true)">+ Adicionar remessa</button>
+                    </div>
 
-                <template class="campos-item">
-                    <label>Tipo *
-                        <select required data-resumo>
-                            <option value="">Selecione</option>
-                            <option>Pelúcia</option>
-                            <option>Boneca ou boneca</option>
-                            <option>Carrinho</option>
-                            <option>Jogo ou quebra-cabeça</option>
-                            <option>Eletronico</option>
-                            <option>Educativo</option>
-                            <option>Outros</option>
-                        </select>
-                    </label>
-                    <label>Faixa etária *
-                        <select required data-resumo>
-                            <option value="">Selecione</option>
-                            <option>0 a 2 anos</option>
-                            <option>3 a 5 anos</option>
-                            <option>6 a 8 anos</option>
-                            <option>9 anso ou mais</option>
-                            <option>Todas as idades</option>
-                        </select>
-                    </label>
-                    <label>Condição *
-                        <select required>
-                            <option>Novo</option>
-                            <option selected>Usado em bom estado</option>
-                        </select>
-                    </label>
-                    <label class="largo">Observações
-                        <input type="text" placeholder="Opcional">
-                    </label>
-                </template>
+                    <template class="campos-item">
+                        <label>Tipo *
+                            <select required data-resumo>
+                                <option value="">Selecione</option>
+                                <option>Pelúcia</option>
+                                <option>Boneca ou boneca</option>
+                                <option>Carrinho</option>
+                                <option>Jogo ou quebra-cabeça</option>
+                                <option>Eletronico</option>
+                                <option>Educativo</option>
+                                <option>Outros</option>
+                            </select>
+                        </label>
+                        <label>Faixa etária *
+                            <select required data-resumo>
+                                <option value="">Selecione</option>
+                                <option>0 a 2 anos</option>
+                                <option>3 a 5 anos</option>
+                                <option>6 a 8 anos</option>
+                                <option>9 anso ou mais</option>
+                                <option>Todas as idades</option>
+                            </select>
+                        </label>
+                        <label>Condição *
+                            <select required>
+                                <option>Novo</option>
+                                <option selected>Usado em bom estado</option>
+                            </select>
+                        </label>
+                        <label class="largo">Observações
+                            <input type="text" placeholder="Opcional">
+                        </label>
+                    </template>
 
-                <template class="campos-remessa">
-                    <label>Faixa etária *
-                        <select required data-resumo>
-                            <option>Variados</option>
-                            <option>0 a 2 anos</option>
-                            <option>3 a 5 anos</option>
-                            <option>6 a 8 anos</option>
-                            <option>9 anso ou mais</option>
-                        </select>
-                    </label>
-                    <label>Condição *
-                        <select required>
-                            <option>Novo</option>
-                            <option selected>Usado em bom estado</option>
-                        </select>
-                    </label>
-                </template>
-            </section>
+                    <template class="campos-remessa">
+                        <label>Faixa etária *
+                            <select required data-resumo>
+                                <option>Variados</option>
+                                <option>0 a 2 anos</option>
+                                <option>3 a 5 anos</option>
+                                <option>6 a 8 anos</option>
+                                <option>9 anso ou mais</option>
+                            </select>
+                        </label>
+                        <label>Condição *
+                            <select required>
+                                <option>Novo</option>
+                                <option selected>Usado em bom estado</option>
+                            </select>
+                        </label>
+                    </template>
+                </section>
 
-            <!-- LIVROS -->
-            <section class="grupo" id="grupo-livro" hidden>
-                <button class="grupo-titulo" onclick="alternar(this)">
-                    <i class="icone livro"></i>
-                    <span><b>Livros</b> <small class="sub"></small></span>
-                    <i class="icon seta grupo-seta"></i>
-                </button>
-                <button class="botao-icone" onclick="removerTipo(this)" aria-label="Remover Livros"><i class="icone lixeira"></i></button>
+                <!-- LIVROS -->
+                <section class="grupo" id="grupo-livro" hidden>
+                    <button type="button" class="grupo-titulo" onclick="alternar(this)">
+                        <i class="icone livro"></i>
+                        <span><b>Livros</b> <small class="sub"></small></span>
+                        <i class="icon seta grupo-seta"></i>
+                    </button>
+                    <button type="button" class="botao-icone" onclick="removerTipo(this)" aria-label="Remover Livros"><i class="icone lixeira"></i></button>
 
-                <div class="grupo-corpo">
-                    <ul class="itens"></ul>
-                    <button class="adicionar" onclick="adicionar('livro', false)">+ Adicionar item</button>
-                    <button class="adicionar" onclick="adicionar('livro', true)">+ Adicionar remessa</button>
-                </div>
+                    <div class="grupo-corpo">
+                        <ul class="itens"></ul>
+                        <button type="button" class="adicionar" onclick="adicionar('livro', false)">+ Adicionar item</button>
+                        <button type="button" class="adicionar" onclick="adicionar('livro', true)">+ Adicionar remessa</button>
+                    </div>
 
-                <template class="campos-item">
-                    <label class="largo">Título
-                        <input type="text" placeholder="Ex.: Dom Casmurro" data-resumo>
-                    </label>
-                    <label>Categoria *
-                        <select required data-resumo>
-                            <option value="">Selecione</option>
-                            <option>Aventura</option>
-                            <option>Autoajuda</option>
-                            <option>Biografia</option>
-                            <option>Ciências</option>
-                            <option>Desenvolvimento pessoal</option>
-                            <option>Drama</option>
-                            <option>Educação</option>
-                            <option>Fantasia</option>
-                            <option>Ficção</option>
-                            <option>Ficção científica</option>
-                            <option>Filosofia</option>
-                            <option>História</option>
-                            <option>HQs e Mangás</option>
-                            <option>Infantil</option>
-                            <option>Juvenil</option>
-                            <option>Literatura clássica</option>
-                            <option>Poesia</option>
-                            <option>Psicologia</option>
-                            <option>Religião</option>
-                            <option>Romance</option>
-                            <option>Suspense</option>
-                            <option>Tecnologia</option>
-                            <option>Terror</option>
-                        </select>
-                    </label>
-                    <label>Público *
-                        <select required>
-                            <option value="">Selecione</option>
-                            <option>Bebê</option>
-                            <option>Infantil</option>
-                            <option>Adulto</option>
-                        </select>
-                    </label>
-                    <label>Condição *
-                        <select required>
-                            <option>Novo</option>
-                            <option selected>Usado em bom estado</option>
-                        </select>
-                    </label>
-                    <label class="largo">Observações
-                        <input type="text" placeholder="Opcional">
-                    </label>
-                </template>
+                    <template class="campos-item">
+                        <label class="largo">Título
+                            <input type="text" placeholder="Ex.: Dom Casmurro" data-resumo>
+                        </label>
+                        <label>Categoria *
+                            <select required data-resumo>
+                                <option value="">Selecione</option>
+                                <option>Aventura</option>
+                                <option>Autoajuda</option>
+                                <option>Biografia</option>
+                                <option>Ciências</option>
+                                <option>Desenvolvimento pessoal</option>
+                                <option>Drama</option>
+                                <option>Educação</option>
+                                <option>Fantasia</option>
+                                <option>Ficção</option>
+                                <option>Ficção científica</option>
+                                <option>Filosofia</option>
+                                <option>História</option>
+                                <option>HQs e Mangás</option>
+                                <option>Infantil</option>
+                                <option>Juvenil</option>
+                                <option>Literatura clássica</option>
+                                <option>Poesia</option>
+                                <option>Psicologia</option>
+                                <option>Religião</option>
+                                <option>Romance</option>
+                                <option>Suspense</option>
+                                <option>Tecnologia</option>
+                                <option>Terror</option>
+                            </select>
+                        </label>
+                        <label>Público *
+                            <select required>
+                                <option value="">Selecione</option>
+                                <option>Bebê</option>
+                                <option>Infantil</option>
+                                <option>Adulto</option>
+                            </select>
+                        </label>
+                        <label>Condição *
+                            <select required>
+                                <option>Novo</option>
+                                <option selected>Usado em bom estado</option>
+                            </select>
+                        </label>
+                        <label class="largo">Observações
+                            <input type="text" placeholder="Opcional">
+                        </label>
+                    </template>
 
-                <template class="campos-remessa">
-                    <label>Público *
-                        <select data-resumo>
-                            <option value="">Variados</option>
-                            <option>Bebê</option>
-                            <option>Infantil</option>
-                            <option>Adulto</option>
-                        </select>
-                    </label>
-                    <label>Condição *
-                        <select required>
-                            <option>Novo</option>
-                            <option selected>Usado em bom estado</option>
-                        </select>
-                    </label>
-                </template>
-            </section>
+                    <template class="campos-remessa">
+                        <label>Público *
+                            <select data-resumo>
+                                <option value="">Variados</option>
+                                <option>Bebê</option>
+                                <option>Infantil</option>
+                                <option>Adulto</option>
+                            </select>
+                        </label>
+                        <label>Condição *
+                            <select required>
+                                <option>Novo</option>
+                                <option selected>Usado em bom estado</option>
+                            </select>
+                        </label>
+                    </template>
+                </section>
 
-            <!-- MATERIAIS ESCOLAR -->
-            <section class="grupo" id="grupo-escolar" hidden>
-                <button class="grupo-titulo" onclick="alternar(this)">
-                    <i class="icone escolar"></i>
-                    <span><b>Material escolar</b> <small class="sub"></small></span>
-                    <i class="icon seta grupo-seta"></i>
-                </button>
-                <button class="botao-icone" onclick="removerTipo(this)" aria-label="Remover Material escolar"><i class="icone lixeira"></i></button>
+                <!-- MATERIAIS ESCOLAR -->
+                <section class="grupo" id="grupo-escolar" hidden>
+                    <button type="button" class="grupo-titulo" onclick="alternar(this)">
+                        <i class="icone escolar"></i>
+                        <span><b>Material escolar</b> <small class="sub"></small></span>
+                        <i class="icon seta grupo-seta"></i>
+                    </button>
+                    <button type="button" class="botao-icone" onclick="removerTipo(this)" aria-label="Remover Material escolar"><i class="icone lixeira"></i></button>
 
-                <div class="grupo-corpo">
-                    <ul class="itens"></ul>
-                    <button class="adicionar" onclick="adicionar('escolar', false)">+ Adicionar item</button>
-                    <button class="adicionar" onclick="adicionar('escolar', true)">+ Adicionar remessa</button>
-                </div>
+                    <div class="grupo-corpo">
+                        <ul class="itens"></ul>
+                        <button type="button" class="adicionar" onclick="adicionar('escolar', false)">+ Adicionar item</button>
+                        <button type="button" class="adicionar" onclick="adicionar('escolar', true)">+ Adicionar remessa</button>
+                    </div>
 
-                <template class="campos-item">
-                    <label>Tipo *
-                        <select required data-resumo>
-                            <option value="">Selecione</option>
-                            <option>Caderno</option>
-                            <option>Mochila</option>
-                            <option>Estocho</option>
-                            <option>Lapis e caneta</option>
-                            <option>Borracha e apontador</option>
-                            <option>Régua e compasso</option>
-                            <option>Calculadora</option>
-                            <option>Outros</option>
-                        </select>
-                    </label>
-                    <label>Condição *
-                        <select required>
-                            <option>Novo</option>
-                            <option selected>Usado em bom estado</option>
-                        </select>
-                    </label>
-                    <label class="largo">Observações
-                        <input type="text" placeholder="Opcional">
-                    </label>
-                </template>
+                    <template class="campos-item">
+                        <label>Tipo *
+                            <select required data-resumo>
+                                <option value="">Selecione</option>
+                                <option>Caderno</option>
+                                <option>Mochila</option>
+                                <option>Estocho</option>
+                                <option>Lapis e caneta</option>
+                                <option>Borracha e apontador</option>
+                                <option>Régua e compasso</option>
+                                <option>Calculadora</option>
+                                <option>Outros</option>
+                            </select>
+                        </label>
+                        <label>Condição *
+                            <select required>
+                                <option>Novo</option>
+                                <option selected>Usado em bom estado</option>
+                            </select>
+                        </label>
+                        <label class="largo">Observações
+                            <input type="text" placeholder="Opcional">
+                        </label>
+                    </template>
 
-                <template class="campos-remessa">
-                    <label>Condição *
-                        <select required>
-                            <option>Novo</option>
-                            <option selected>Usado em bom estado</option>
-                        </select>
-                    </label>
-                </template>
-            </section>
+                    <template class="campos-remessa">
+                        <label>Condição *
+                            <select required>
+                                <option>Novo</option>
+                                <option selected>Usado em bom estado</option>
+                            </select>
+                        </label>
+                    </template>
+                </section>
 
-            <!-- ALIMENTOS -->
-            <section class="grupo" id="grupo-alimento" hidden>
-                <button class="grupo-titulo" onclick="alternar(this)">
-                    <i class="icone alimento"></i>
-                    <span><b>Alimentos</b> <small class="sub"></small></span>
-                    <i class="icon seta grupo-seta"></i>
-                </button>
-                <button class="botao-icone" onclick="removerTipo(this)" aria-label="Remover Alimentos"><i class="icone lixeira"></i></button>
+                <!-- ALIMENTOS -->
+                <section class="grupo" id="grupo-alimento" hidden>
+                    <button type="button" class="grupo-titulo" onclick="alternar(this)">
+                        <i class="icone alimento"></i>
+                        <span><b>Alimentos</b> <small class="sub"></small></span>
+                        <i class="icon seta grupo-seta"></i>
+                    </button>
+                    <button type="button" class="botao-icone" onclick="removerTipo(this)" aria-label="Remover Alimentos"><i class="icone lixeira"></i></button>
 
-                <div class="grupo-corpo">
-                    <ul class="itens"></ul>
-                    <button class="adicionar" onclick="adicionar('alimento', false)">+ Adicionar item</button>
-                    <button class="adicionar" onclick="adicionar('alimento', true)">+ Adicionar remessa</button>
-                </div>
+                    <div class="grupo-corpo">
+                        <ul class="itens"></ul>
+                        <button type="button" class="adicionar" onclick="adicionar('alimento', false)">+ Adicionar item</button>
+                        <button type="button" class="adicionar" onclick="adicionar('alimento', true)">+ Adicionar remessa</button>
+                    </div>
 
-                <template class="campos-item">
-                    <label>Tipo *
-                        <select required data-resumo>
-                            <option value="">Selecione</option>
-                            <option>Arroz e Feijão</option>
-                            <option>Massas</option>
-                            <option>Enlatados</option>
-                            <option>Leite e derivados</option>
-                            <option>Oleo, acúcar e sal</option>
-                            <option>Outros</option>
-                        </select>
-                    </label>
-                    <label>Peso ou volume
-                        <input type="text" placeholder="Ex.: 1 kg">
-                    </label>
-                    <label class="largo">Validade *
-                        <input type="date" required>
-                    </label>
-                    <label class="largo">Observações
-                        <input type="text" placeholder="Opcional">
-                    </label>
-                </template>
+                    <template class="campos-item">
+                        <label>Tipo *
+                            <select required data-resumo>
+                                <option value="">Selecione</option>
+                                <option>Arroz e Feijão</option>
+                                <option>Massas</option>
+                                <option>Enlatados</option>
+                                <option>Leite e derivados</option>
+                                <option>Oleo, acúcar e sal</option>
+                                <option>Outros</option>
+                            </select>
+                        </label>
+                        <label>Peso ou volume
+                            <input type="text" placeholder="Ex.: 1 kg">
+                        </label>
+                        <label class="largo">Validade *
+                            <input type="date" required>
+                        </label>
+                        <label class="largo">Observações
+                            <input type="text" placeholder="Opcional">
+                        </label>
+                    </template>
 
-                <template class="campos-remessa">
-                    <label>Validade mais próxima *
-                        <input type="date" required>
-                    </label>
-                </template>
-            </section>
+                    <template class="campos-remessa">
+                        <label>Validade mais próxima *
+                            <input type="date" required>
+                        </label>
+                    </template>
+                </section>
 
-        </div>
+            </div>
+        </form>
     </main>
 
     <button class="botao-mais" popovertarget="popup"><i class="icone mais"></i></button>
@@ -484,7 +485,7 @@
 
     <footer class="rodapé">
         <div>Total: <b id="total-un">0 un.</b><br>Tipos: <b id="total-tipos">0</b></div>
-        <button class="enviar" id="botao-enviar" onclick="enviar()" disabled>Enviar doação</button>
+        <button class="enviar" id="botao-enviar" type="submit" form="formDoacao" disabled>Enviar doação</button>
     </footer>
 
     <p id="aviso" hidden></p>
