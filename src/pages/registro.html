@@ -1,42 +1,134 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel= "stylesheet" href="../css/style.css">
-    <script src="src/js/registro.js" defer></script>
+    <script src="../js/registrar.js" defer></script>
+    <script src="../js/registro.js" defer></script>
+    <script src="../js/apis.js" defer></script>
     <title>Cadastre-se</title>
     
 </head>
 <body>
-    <h1>Cadastre-se agora!</h1>
-    
-        <form id="formCadastro">
+        <div class="container_login">
+        
+        <div class="lpanel">
+            <div class="logo">Sua Marca</div>
+            <div class="circulo-decorativo"></div>
+            <div class="boas-vindas">
+                <h2>Faça parte dessa missão</h2>
+                <p>A SUA DOAÇÃO, NOSSA MISSÃO! Cadastre-se e faça a diferença na vida de alguém. Juntos, podemos transformar vidas e construir um futuro melhor para todos.</p>
+            </div>
+        </div>
 
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" minlength="1" placeholder="Nome Completo" required><br>
 
-            <label for="CPF">CPF:</label>
-            <input type="text" id="CPF" name="CPF" maxlength="14" placeholder="000.000.000-00" required><br>
+    <div class="rpanel rpanel-cadastro">
+        <h1>Cadastre-se agora!</h1>
+        <div class="tabs-header">
+            <button type="button" class="tab-btn active" data-aba="aba-pf">Pessoa Física</button>
+            <button type="button" class="tab-btn" data-aba="aba-pj">Pessoa Jurídica</button>
+        </div>
 
-            <label for="data_nascimento">Data de Nascimento:</label>
-            <input type="date" id="data_nascimento" name="data_nascimento" required><br>
+        <!-- Cadastro Pessoa Física -->
+        <div id="aba-pf" class="tab-content active">
+            <form id="formCadastro">
+                <div class="campo">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" minlength="1" placeholder="Nome Completo" required>
+                </div>
 
-            <label for="telefone">Telefone:</label>
-            <input type="tel" id="telefone" name="telefone" maxlength="15" placeholder="(__) _____-____" required><br>
+                <div class="linha-dupla">
+                    <div class="campo">
+                        <label for="CPF">CPF:</label>
+                        <input type="text" id="CPF" name="CPF" maxlength="14" placeholder="000.000.000-00" required>
+                    </div>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="seu@email.com" required><br>
+                    <div class="campo">
+                        <label for="data_nascimento">Data de Nascimento:</label>
+                        <input type="date" id="data_nascimento" name="data_nascimento" required>
+                    </div>
+                </div>
 
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" placeholder="Sua senha" required><br>
+                <div class="linha-dupla">
+                    <div class="campo">
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone" maxlength="15" placeholder="(__) _____-____" required>
+                    </div>
 
-            <label for="confirmar_senha">Confirmar Senha:</label>   
-            <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Confirme sua senha" required><br>
+                    <div class="campo">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                    </div>
+                </div>
 
-            <button type="submit">Cadastrar</button>
-        </form>
+                <div class="linha-dupla">
+                    <div class="campo">
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" placeholder="Sua senha" required>
+                    </div>
 
+                    <div class="campo">
+                        <label for="confirmar_senha">Confirmar Senha:</label>
+                        <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Confirme sua senha" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-entrar">Cadastrar Pessoa Física</button>
+            </form>
+        </div>
+
+        <!-- Cadastro Pessoa Jurídica -->
+        <div id="aba-pj" class="tab-content">
+            <form id="formCadastroPJ">
+                <div class="campo">
+                    <label for="razao_social">Razão Social / Nome da Instituição:</label>
+                    <input type="text" id="razao_social" name="razao_social" minlength="1" placeholder="Nome da empresa ou ONG" required>
+                </div>
+
+                <div class="linha-dupla">
+                    <div class="campo">
+                        <label for="CNPJ">CNPJ:</label>
+                        <input type="text" id="CNPJ" name="CNPJ" maxlength="18" placeholder="00.000.000/0000-00" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="data_fundacao">Data de Fundação:</label>
+                        <input type="date" id="data_fundacao" name="data_fundacao" required>
+                    </div>
+                </div>
+
+                <div class="linha-dupla">
+                    <div class="campo">
+                        <label for="telefone_pj">Telefone Comercial:</label>
+                        <input type="tel" id="telefone_pj" name="telefone_pj" maxlength="15" placeholder="(__) _____-____" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="email_pj">Email Corporativo:</label>
+                        <input type="email" id="email_pj" name="email_pj" placeholder="contato@empresa.com" required>
+                    </div>
+                </div>
+
+                <div class="linha-dupla">
+                    <div class="campo">
+                        <label for="senha_pj">Senha:</label>
+                        <input type="password" id="senha_pj" name="senha_pj" placeholder="Sua senha" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="confirmar_senha_pj">Confirmar Senha:</label>
+                        <input type="password" id="confirmar_senha_pj" name="confirmar_senha_pj" placeholder="Confirme sua senha" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-entrar">Cadastrar Pessoa Jurídica</button>
+            </form>
+        </div>
+
+        <div class="cadastro-area">
+            Já tem uma conta? <a class="regis" href="login_regis.html">Faça login</a>
+        </div>
+    </div>
 </body>
 </html>
