@@ -843,7 +843,7 @@ nav.nav-scrolled .hero-nav-bar {
 }
 
 /* ==========================================================================
-   ESTILOS DAS ABAS (PESSOA FÍSICA / JURÍDICA)
+  8- ESTILOS DAS ABAS (PESSOA FÍSICA / JURÍDICA)
    ========================================================================== */
 
 .rpanel-cadastro {
@@ -921,7 +921,7 @@ nav.nav-scrolled .hero-nav-bar {
 }
 
 /* ==========================================================================
-   RESPONSIVIDADE DA TELA LOGIN E REGISTRO
+  9- RESPONSIVIDADE DA TELA LOGIN E REGISTRO
    ========================================================================== */
 
 @media (max-width: 900px) {
@@ -965,4 +965,20 @@ nav.nav-scrolled .hero-nav-bar {
     .tab-btn {
         font-size: 0.95rem;
     }
+}
+
+/* ==========================================================================
+  10- RESPONSIVIDADE DA TELA LOGIN E REGISTRO
+   ========================================================================== */
+
+.direitos_fixos{
+     position: fixed;
+    bottom: 15px;
+    right: 20px;
+    z-index: 1000;
+    font-size: 14 px;
+    color:#a0a0a0;
+    background-color: rgba(255, 255, 255, 0); 
+    padding: 5px 10px;
+    border-radius: 4px;
 }
