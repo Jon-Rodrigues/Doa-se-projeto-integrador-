@@ -1,0 +1,64 @@
+/* Configuração geral da página de histórico */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo);
+    color: #333;
+    margin: 0;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo do Título Principal */
+h2 {
+    margin-top: 40px; /* Aumentei de 50px para 100px para dar mais espaço no topo */
+    color: #2c3e50; 
+    margin-bottom: 30px;
+    text-align: center; 
+    margin-left: 0; 
+    font-size: 22px; /* Adicione esta linha para controlar o tamanho da letra */
+}
+
+/* Estilização da Tabela de Doações */
+table {
+    width: 70%; /* A tabela vai ocupar 80% da tela, deixando margens nas laterais */
+    max-width: 700px; /* Garante que ela não fique gigante em telas muito grandes */
+    margin: 0 auto; /* ESSE É O SEGREDO: O "auto" centraliza a tabela perfeitamente na página */
+    border-collapse: collapse; 
+    box-shadow: 0 4px 8px rgba(126, 33, 75, 0.949); 
+    border-radius: 8px;
+    overflow: hidden; 
+    margin-bottom: 40px;
+}
+
+/* Cabeçalho e Células */
+th, td {
+    padding: 15px 20px;
+    text-align: center; /* Centraliza "DOAÇÃO", "DATA" e os dados das linhas */
+    border-bottom: 1px solid #eeeeee;
+}
+/* Destaque para o Cabeçalho da Tabela */
+th {
+    background-color: var(--cor-secundaria); /* Verde remetendo a doações/esperança (pode alterar para a cor da identidade do Doa-se) */
+    color: var(--cor-fonte-padrão);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+/* Efeito ao passar o mouse na linha */
+tbody tr:hover {
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+/* Ajuste do rodapé (Footer) */
+footer {
+    text-align: center;
+    font-size: 0.85em;
+    color: #777;
+    margin-top: auto;
+    width: 100%;
+    padding: 20px 0;
+}
