@@ -14,9 +14,7 @@
     --cor-fundo-e: #E1E4E8;
     --cor-fundo-f: rgb(205, 210, 214);
     --cor-primaria: #D5B7A0;
-    --cor-secundaria:#16931e;
     --cor-fonte-padrão: #2B2B2C;
-    
 }
 
 
@@ -43,11 +41,14 @@
 
 html {
     scroll-behavior: smooth;
+    min-height: 100%;
 }
 
 body {
+    position: relative;
     margin: 0;
     background-color: var(--cor-fundo);
+    height: 2500px;
 }
 
 .font-fira-sans {
@@ -100,6 +101,21 @@ label {
 
 input {
     background-color: var(--cor-fundo);
+}
+
+a{
+    text-decoration: none;
+    color: var(--cor-fonte-padrão);
+}
+
+a:hover{
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--cor-primaria);
+}
+
+li{
+    list-style: none;
 }
 
 
@@ -164,14 +180,20 @@ input {
 #menu-user {
     position: fixed;
     display: flex;
-    width: 300px;
-    height: 50%;
+    width: 500px;
+    height: 40%;
     border-radius: 3%;
     background-color: var(--cor-fundo);
     overflow: hidden;
     z-index: 1002;
     top: 10%;
     right: 10%;
+    transition: all 0.5s ease-in-out;
+}
+
+#menu-user.menuConfig{
+    width: 300px;
+    height: 50%;
 }
 
 .user-screen {
@@ -192,50 +214,100 @@ input {
     background-color: var(--cor-primaria);
 }
 
-#user-photo {
-    width: 310px;
+#user-photo-container{
     position: absolute;
-    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    overflow: hidden;
+    top: 10%;
+}
+
+#user-photo {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
 }
 
 #user-info-containder {
+    width: 100%;
     position: absolute;
+    top: 40%;
+    left: 5px;
 }
 
 .user-info {
+    text-align: center;
     font-family: 'fira sans';
-    margin-left: 20px;
     margin-top: 3px;
     letter-spacing: 0.5px;
-    color: var(--cor-fundo);
+    color: var(--cor-fonte-padrão);
 }
 
 #user-info-nome {
-    font-weight: 500;
+    font-weight: 400;
     bottom: 25%;
 }
 
+.resumo-doacao{
+    font-size: 10px;
+}
+
+#resumo-user{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    gap: 10px;
+}
+
+.btn-user-painel{
+    border-radius: 50px;
+    border: none;
+    background: var(--cor-fonte-padrão);
+    color: var(--cor-fundo);
+    cursor: pointer;
+    height: 50px;
+    width: 150px;
+}
+
+.btn-user-painel:hover{
+    background: var(--cor-primaria);
+}
+
+#btn-painel-container{
+    margin-top: 30px;
+    margin: 30px;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+}
+
 #user-info-cad, #user-info-tipo, #user-info-mot {
-    font-size: 14px;
+    font-size: 10px;
 }
 
 #user-blur {
-    width: 100%;
-    height: 170px;
-    bottom: 0;
+    width: 200%;
+    height: 200px;
+    left: -50%;
+    bottom: -10%;
     position: absolute;
-    background: #1b1b1b6f;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--cor-fundo);
+    filter: blur(10px);
 }
 
 #user-setting-icon {
-    fill: var(--cor-fundo);
+    fill: var(--cor-fonte-padrão);
     position: absolute;
     width: 20px;
     height: 20px;
     right: 5%;
-    top: 3%;
+    top: 5%;
     cursor: pointer;
 }
 
@@ -263,15 +335,20 @@ input {
     height: 100%;
     background: var(--cor-fundo);
     display: none;
+    z-index: 100;
 }
 
 #user-setting.ativo {
     display: block;
 }
 
-.user-setting-list {
+.user-setting-list{
     position: absolute;
     bottom: 20px;
+    color: var(--cor-fonte-padrão);
+    font-family: 'fira sans';
+    letter-spacing: 0.5px;
+
 }
 
 .user-setting-list li{
@@ -288,6 +365,29 @@ input {
     cursor: pointer;
 }
 
+.login-screen {
+    position: fixed;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(22, 21, 21, 0.302);
+    z-index: 1001;
+}
+
+
+#login-pop {
+    position: fixed;
+    display: flex;
+    width: 400px;
+    height: 30%;
+    border-radius: 3%;
+    background-color: var(--cor-fundo);
+    overflow: hidden;
+    z-index: 1002;
+    top: 10%;
+    right: 10%;
+}
+
 
 /* ==========================================================================
    3. HERO SECTION
@@ -302,17 +402,50 @@ nav {
 }
 
 #image-hero-bg {
+    position: absolute;
     width: 120%;
     height: auto;
     filter: brightness(50%) blur(5px);
     z-index: 1;
+    opacity: 1;
+    transition: opacity 1.5s ease-in;
 }
 
-#image-hero-person {
-    width: 30%;
+#image-hero-bg.fade {
+    opacity: 0;
+}
+
+#image-hero-bgB {
+    position: absolute;
+    width: 120%;
     height: auto;
+    filter: brightness(50%) blur(5px);
+    z-index: 1;
+    opacity: 1;
+}
+
+
+#image-hero-person {
+    width: auto;
+    height: 700px;
     position: absolute;
     z-index: 3;
+    opacity: 1;
+    transition: opacity 1.5s ease-in-out;
+}
+
+#image-hero-person.fade {
+    opacity: 0;
+}
+
+
+#hero-nomes{
+    opacity: 1;
+    transition: opacity 1.5s ease-in-out;
+}
+
+#hero-nomes.fade{
+    opacity: 0;
 }
 
 .hero-container{
@@ -345,6 +478,22 @@ nav {
     font-size: 18vw;
     position: absolute;
     z-index: 2;
+}
+
+#hero-doase-outline{
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 18vw;
+    position: absolute;
+    z-index: 4;
+    color: transparent;
+    -webkit-text-fill-color: transparent;     
+    -webkit-text-stroke: 2.5px var(--cor-fundo);
+    -webkit-mask-image: linear-gradient(to top, transparent 30%, #000 50%);
+    mask-image: linear-gradient(to top, transparent 30%, #000 50%);
+}
+.no-out{
+    -webkit-text-stroke: 0px;
 }
 
 #hero-text {
@@ -383,6 +532,26 @@ nav.nav-scrolled .hero-nav-bar {
 /* ==========================================================================
    4. SECÇÃO O QUE DOAR
    ========================================================================== */
+
+
+#queroDoar{
+    position: absolute;
+    height: 60px;
+    width: 500px;
+    border-radius: 50px;
+    border: none;
+    background: var(--cor-fonte-padrão);
+    color: var(--cor-fundo);
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%) translateY(-90px);
+    z-index: 5;
+}
+
+#queroDoar:hover{
+    background: var(--cor-primaria);
+}
 
 .btn-o-que-doar{
     background-color: transparent;
@@ -667,320 +836,9 @@ nav.nav-scrolled .hero-nav-bar {
     background-color: var(--cor-fundo-e);
 }
 
-/* ==========================================================================
-   7. Login e Registro
-   ========================================================================== */
 
-.container_login {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    min-height: 100vh;
-    width: 100%;
-    background-color: #181818;
-    font-family: 'Fira Sans', sans-serif;
-}
 
-/* Painel Esquerdo */
-.lpanel {
-    background: linear-gradient(135deg, #d5b7a0 0%, #8c6d56 55%, #2b2b2c 100%);
-    padding: 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: var(--cor-fundo);
-    position: relative;
-    overflow: hidden;
-}
-
-.lpanel::after {
-    content: "";
+footer {
     position: absolute;
-    width: 650px;
-    height: 650px;
-    border: 2px solid rgba(255, 255, 255, 0.18);
-    border-radius: 50% 50% 0 50%;
-    right: -120px;
-    bottom: -80px;
-    transform: rotate(-25deg);
-    pointer-events: none;
-}
-
-.lpanel .marca {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-.lpanel .text {
-    max-width: 460px;
-    z-index: 1;
-}
-
-.lpanel .text h2 {
-    font-size: 2.3rem;
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-.lpanel .text p {
-    font-size: 1rem;
-    line-height: 1.6;
-    font-weight: 300;
-    opacity: 0.95;
-}
-
-.lpanel .cards-row {
-    display: flex;
-    gap: 15px;
-    z-index: 1;
-}
-
-.lpanel .glass-card {
-    flex: 1;
-    height: 85px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 10px;
-    backdrop-filter: blur(4px);
-}
-
-/* Painel Direito */
-.rpanel {
-    background-color: #181818;
-    padding: 60px 55px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.rpanel h1 {
-    color: var(--cor-primaria);
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 45px;
-}
-
-.rpanel .campo {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 30px;
-}
-
-.rpanel .campo label {
-    position: static;
-    background-color: transparent;
-    padding: 0;
-    margin-bottom: 8px;
-    font-size: 0.9rem;
-    color: #a0a0a0;
-    pointer-events: auto;
-}
-
-.rpanel .campo input {
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid #444;
-    border-radius: 0;
-    padding: 10px 0;
-    color: var(--cor-fundo);
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-.rpanel .campo input:focus {
-    border-bottom: 1px solid var(--cor-primaria);
-}
-
-.rpanel .acoes-login {
-    text-align: right;
-    margin-top: -15px;
-    margin-bottom: 30px;
-}
-
-.rpanel .senha {
-    font-size: 0.85rem;
-    color: #a0a0a0;
-    text-decoration: none;
-}
-
-.rpanel .senha:hover {
-    color: var(--cor-fundo);
-    text-decoration: underline;
-}
-
-.rpanel .btn-entrar {
-    width: 100%;
-    padding: 14px;
-    background-color: var(--cor-primaria);
-    color: var(--cor-fonte-padrão);
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: opacity 0.3s;
-}
-
-.rpanel .btn-entrar:hover {
-    opacity: 0.9;
-}
-
-.rpanel .cadastro-area {
-    margin-top: 25px;
-    text-align: center;
-    font-size: 0.9rem;
-    color: #a0a0a0;
-}
-
-.regis {
-    text-decoration: none;
-    color: var(--cor-primaria);
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.regis:hover {
-    color: var(--cor-fundo);
-    text-decoration: underline;
-}
-
-/* ==========================================================================
-  8- ESTILOS DAS ABAS (PESSOA FÍSICA / JURÍDICA)
-   ========================================================================== */
-
-.rpanel-cadastro {
-    padding: 35px 55px;
-    justify-content: flex-start;
-    overflow-y: auto;
-    overflow-x: hidden;
-    max-height: 100vh;
-    box-sizing: border-box;
-}
-
-.rpanel-cadastro h1 {
-    margin-bottom: 25px;
-    font-size: 2.2rem;
-}
-
-.rpanel-cadastro .campo {
-    margin-bottom: 20px;
-}
-
-.tabs-header {
-    display: flex;
-    border-bottom: 1px solid #333;
-    margin-bottom: 28px;
-    gap: 25px;
-}
-
-.tab-btn {
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid transparent;
-    padding: 10px 4px;
-    color: #888;
-    font-family: 'Fira Sans', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.tab-btn:hover {
-    color: var(--cor-fundo);
-}
-
-.tab-btn.active {
-    color: var(--cor-primaria);
-    border-bottom: 2px solid var(--cor-primaria);
-}
-
-.tab-content {
-    display: none;
-    animation: fadeIn 0.3s ease;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Campos lado a lado */
-.rpanel .linha-dupla {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-/* Ícone do calendário visível no fundo escuro  apenas quando o fundo for escuro*/
-.rpanel input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(0.8);
-    cursor: pointer;
-}
-
-/* ==========================================================================
-  9- RESPONSIVIDADE DA TELA LOGIN E REGISTRO
-   ========================================================================== */
-
-@media (max-width: 900px) {
-    .container_login {
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        min-height: 100vh;
-        overflow-x: hidden;
-    }
-
-    .lpanel {
-        width: 100%;
-        min-height: auto;
-        padding: 35px 25px;
-        box-sizing: border-box;
-    }
-
-    .lpanel .text h2 {
-        font-size: 1.8rem;
-    }
-
-    .rpanel, .rpanel-cadastro {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        max-height: none;
-        padding: 35px 25px;
-        box-sizing: border-box;
-    }
-
-    .rpanel .linha-dupla {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-
-    .tabs-header {
-        gap: 15px;
-    }
-
-    .tab-btn {
-        font-size: 0.95rem;
-    }
-}
-
-/* ==========================================================================
-  10- RESPONSIVIDADE DA TELA LOGIN E REGISTRO
-   ========================================================================== */
-
-.direitos_fixos{
-     position: fixed;
-    bottom: 15px;
-    right: 20px;
-    z-index: 1000;
-    font-size: 14 px;
-    color:#a0a0a0;
-    background-color: rgba(255, 255, 255, 0); 
-    padding: 5px 10px;
-    border-radius: 4px;
+    bottom: 0;
 }
