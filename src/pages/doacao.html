@@ -3,18 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/doacao.css">
+    <link rel="stylesheet" href="../css/icone.css">
+    <script src="../js/menu.js" defer></script>
     <script src="../js/doacao.js" defer></script>
     <title>Doa-se (Nova Doação)</title>
 </head>
 <body>
 
+    <div id="loading-screen">
+        <div class="loading-background"></div>
+        <div class="loading-animation">
+            <img id="loading-coracao" src="../assets/anim/coracao_anim.svg" alt="Carregando">
+        </div>
+    </div>
+
+    <div id="user">
+        <div class="user-screen" onclick="user_perfil()"></div>
+        <div id="menu-user">
+            <div id="user-info">
+                <img id="user-photo" src="src/assets/images/Endy/20260925_212702.jpg" alt="">
+                <div id="user-blur-b">
+                    <div id="user-blur">
+                        <div id="user-info-containder">
+                            <h2 class="user-info" id="user-info-nome">Olá, <Span>Endy</Span>!</h2>
+                            <p class="user-info" id="user-info-cad">Doador desde 2025</p>
+                            <p class="user-info" id="user-info-mot">Seu apoio faz a diferença.</p>
+                        </div>
+                        <button id="btn-user-doacao">Fazer uma doação</button>
+                    </div>
+                </div>
+                <svg id="user-setting-icon" onclick="addUserSetting()" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path  d="M1.60682 18C2.43398 19.4356 4.26834 19.9288 5.70393 19.1017C5.70491 19.1011 5.70585 19.1005 5.70684 19.1L6.15182 18.843C6.99182 19.5616 7.95735 20.119 8.9998 20.487V21C8.9998 22.6568 10.343 24 11.9998 24C13.6566 24 14.9998 22.6568 14.9998 21V20.487C16.0424 20.1184 17.008 19.5604 17.8478 18.841L18.2948 19.099C19.7307 19.9274 21.5664 19.4349 22.3948 17.999C23.2232 16.563 22.7308 14.7274 21.2948 13.899L20.8508 13.643C21.0507 12.5554 21.0507 11.4405 20.8508 10.353L21.2948 10.097C22.7307 9.26855 23.2232 7.43292 22.3948 5.99695C21.5664 4.56103 19.7308 4.06852 18.2948 4.89694L17.8498 5.15395C17.009 4.43616 16.0428 3.87984 14.9998 3.513V3C14.9998 1.34316 13.6566 0 11.9998 0C10.343 0 8.9998 1.34316 8.9998 3V3.513C7.95721 3.88158 6.99163 4.43958 6.15182 5.15902L5.70482 4.90003C4.26885 4.07156 2.43323 4.56408 1.6048 6C0.776383 7.43592 1.26885 9.27159 2.70482 10.1L3.14882 10.356C2.94895 11.4435 2.94895 12.5584 3.14882 13.646L2.70482 13.902C1.27284 14.7326 0.781961 16.5647 1.60682 18ZM11.9998 8.00002C14.2089 8.00002 15.9998 9.79088 15.9998 12C15.9998 14.2091 14.2089 16 11.9998 16C9.79068 16 7.99982 14.2091 7.99982 12C7.99982 9.79088 9.79068 8.00002 11.9998 8.00002Z"/>
+                </svg>
+            </div>
+            <div id="user-setting">
+                <svg id="user-setting-icon-back" onclick="removeUserSetting()" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 10.5H10.207L12.646 8.061C12.9274 7.77974 13.0855 7.39822 13.0856 7.00036C13.0857 6.6025 12.9277 6.2209 12.6465 5.9395C12.3652 5.65811 11.9837 5.49997 11.5858 5.49988C11.188 5.49978 10.8064 5.65774 10.525 5.939L6.93896 9.525C6.28373 10.182 5.91577 11.0721 5.91577 12C5.91577 12.9279 6.28373 13.818 6.93896 14.475L10.525 18.061C10.8064 18.3423 11.188 18.5002 11.5858 18.5001C11.9837 18.5 12.3652 18.3419 12.6465 18.0605C12.9277 17.7791 13.0857 17.3975 13.0856 16.9997C13.0855 16.6018 12.9274 16.2203 12.646 15.939L10.207 13.5H19C19.3978 13.5 19.7793 13.342 20.0606 13.0607C20.3419 12.7794 20.5 12.3978 20.5 12C20.5 11.6022 20.3419 11.2206 20.0606 10.9393C19.7793 10.658 19.3978 10.5 19 10.5Z"/>
+                </svg>
+
+                <ul class="user-setting-list">
+                    <li><a href="">Configurações</a></li>
+                    <li><a href="">Segurança e Privacidade</a></li>
+                    <li><a href="">Histórico de doações</a></li>
+                    <li><a href="">Ajuda</a></li>
+                    <li><a href="">Sair</a></li>
+                </ul>
+            </div>
+           
+        </div>
+    </div>
+
+    <!--<div id="login-popup">
+        <div class="login-screen" onclick="user_login()"></div>
+        <div id="login-pop">  
+            <form action="login">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com" required><br>
+                
+                <label class="form-label" for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="********" required>
+            </form>
+
+            <a href="">Esqueceu a senha?</a>
+            <button>Entrar</button>
+        </div>
+    </div>-->
+
     <header>
         <nav>
             <div class="hero-nav-bar" onclick="user_perfil_b()"></div>
             <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="#impactos">Sobre</a></li>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../../index.html#impactos">Sobre</a></li>
                 <li><a onclick="abrirSublista()">Doações</a>
                     <ul id="sublista-doar">
                         <li><a href="">Doar</a></li>
@@ -33,7 +95,7 @@
         <h1>Nova Doação</h1>
         <p>Toque no + para adicionar item para doar</p>
 
-        <p id="vazio" class="vazio">Sua lista para doação esta vazia</p>
+        <p id="vazio" class="vazio">Sua lista para doação esta vazia :(</p>
 
         <form id="formDoacao" onsubmit="enviar(event)">
             <div id="lista" oninput="atualizas()">
@@ -43,14 +105,14 @@
                     <button type="button" class="grupo-titulo" onclick="alternar(this)">
                         <i class="icone roupa"></i>
                         <span><b>Roupas</b> <small class="sub"></small></span>
-                        <i class="icon seta grupo-seta"></i>
+                        <i class="icone seta grupo-seta"></i>
                     </button>
                     <button type="button" class="botao-icone" onclick="removerTipo(this)" aria-label="Remover Roupas"><i class="icone lixeira"></i></button>
 
                     <div class="grupo-corpo">
                         <ul class="itens"></ul>
-                        <button type="button" class="adicionar" onclick="adicionar('roupa', false)">+ Adicionar item</button>
-                        <button type="button" class="adicionar" onclick="adicionar('roupa', true)">+ Adicionar remessa</button>
+                        <button type="button" class="adicionar" onclick="adicionar('roupa', false)">+ Adicionar mais roupa</button>
+                        <button type="button" class="adicionar" onclick="adicionar('roupa', true)">+ Adicionar varias roupas</button>
                     </div>
 
                     <template class="campos-item">
@@ -138,14 +200,14 @@
                     <button type="button" class="grupo-titulo" onclick="alternar(this)">
                         <i class="icone sapato"></i>
                         <span><b>Sapatos</b> <small class="sub"></small></span>
-                        <i class="icon seta grupo-seta"></i>
+                        <i class="icone seta grupo-seta"></i>
                     </button>
                     <button type="button" class="botao-icone" onclick="removerTipo(this)" aria-label="Remover sapatos"><i class="icone lixeira"></i></button>
 
                     <div class="grupo-corpo">
                         <ul class="itens"></ul>
-                        <button type="button" class="adicionar" onclick="adicionar('sapato', false)">+ Adicionar item</button>
-                        <button type="button" class="adicionar" onclick="adicionar('sapato', true)">+ Adicionar remessa</button>
+                        <button type="button" class="adicionar" onclick="adicionar('sapato', false)">+ Adicionar mais sapato</button>
+                        <button type="button" class="adicionar" onclick="adicionar('sapato', true)">+ Adicionar varios sapatos</button>
                     </div>
 
                     <template class="campos-item">
@@ -214,14 +276,14 @@
                     <button type="button" class="grupo-titulo" onclick="alternar(this)">
                         <i class="icone brinquedo"></i>
                         <span><b>Brinquedos</b> <small class="sub"></small></span>
-                        <i class="icon seta grupo-seta"></i>
+                        <i class="icone seta grupo-seta"></i>
                     </button>
                     <button type="button" class="botao-icone" onclick="removerTipo(this)" aria-label="Remover brinquedos"><i class="icone lixeira"></i></button>
 
                     <div class="grupo-corpo">
                         <ul class="itens"></ul>
-                        <button type="button" class="adicionar" onclick="adicionar('brinquedo', false)">+ Adicionar item</button>
-                        <button type="button" class="adicionar" onclick="adicionar('brinquedo', true)">+ Adicionar remessa</button>
+                        <button type="button" class="adicionar" onclick="adicionar('brinquedo', false)">+ Adicionar mais brinquedo</button>
+                        <button type="button" class="adicionar" onclick="adicionar('brinquedo', true)">+ + Adicionar varios brinquedos</button>
                     </div>
 
                     <template class="campos-item">
@@ -243,7 +305,7 @@
                                 <option>0 a 2 anos</option>
                                 <option>3 a 5 anos</option>
                                 <option>6 a 8 anos</option>
-                                <option>9 anso ou mais</option>
+                                <option>9 anos ou mais</option>
                                 <option>Todas as idades</option>
                             </select>
                         </label>
@@ -282,14 +344,14 @@
                     <button type="button" class="grupo-titulo" onclick="alternar(this)">
                         <i class="icone livro"></i>
                         <span><b>Livros</b> <small class="sub"></small></span>
-                        <i class="icon seta grupo-seta"></i>
+                        <i class="icone seta grupo-seta"></i>
                     </button>
                     <button type="button" class="botao-icone" onclick="removerTipo(this)" aria-label="Remover Livros"><i class="icone lixeira"></i></button>
 
                     <div class="grupo-corpo">
                         <ul class="itens"></ul>
-                        <button type="button" class="adicionar" onclick="adicionar('livro', false)">+ Adicionar item</button>
-                        <button type="button" class="adicionar" onclick="adicionar('livro', true)">+ Adicionar remessa</button>
+                        <button type="button" class="adicionar" onclick="adicionar('livro', false)">+ Adicionar mais livro</button>
+                        <button type="button" class="adicionar" onclick="adicionar('livro', true)">+ Adicionar varios livros</button>
                     </div>
 
                     <template class="campos-item">
@@ -366,14 +428,14 @@
                     <button type="button" class="grupo-titulo" onclick="alternar(this)">
                         <i class="icone escolar"></i>
                         <span><b>Material escolar</b> <small class="sub"></small></span>
-                        <i class="icon seta grupo-seta"></i>
+                        <i class="icone seta grupo-seta"></i>
                     </button>
                     <button type="button" class="botao-icone" onclick="removerTipo(this)" aria-label="Remover Material escolar"><i class="icone lixeira"></i></button>
 
                     <div class="grupo-corpo">
                         <ul class="itens"></ul>
-                        <button type="button" class="adicionar" onclick="adicionar('escolar', false)">+ Adicionar item</button>
-                        <button type="button" class="adicionar" onclick="adicionar('escolar', true)">+ Adicionar remessa</button>
+                        <button type="button" class="adicionar" onclick="adicionar('escolar', false)">+ Adicionar mais material escolar</button>
+                        <button type="button" class="adicionar" onclick="adicionar('escolar', true)">+ Adicionar varios materiais</button>
                     </div>
 
                     <template class="campos-item">
@@ -382,7 +444,7 @@
                                 <option value="">Selecione</option>
                                 <option>Caderno</option>
                                 <option>Mochila</option>
-                                <option>Estocho</option>
+                                <option>Estojo</option>
                                 <option>Lapis e caneta</option>
                                 <option>Borracha e apontador</option>
                                 <option>Régua e compasso</option>
@@ -416,14 +478,14 @@
                     <button type="button" class="grupo-titulo" onclick="alternar(this)">
                         <i class="icone alimento"></i>
                         <span><b>Alimentos</b> <small class="sub"></small></span>
-                        <i class="icon seta grupo-seta"></i>
+                        <i class="icone seta grupo-seta"></i>
                     </button>
                     <button type="button" class="botao-icone" onclick="removerTipo(this)" aria-label="Remover Alimentos"><i class="icone lixeira"></i></button>
 
                     <div class="grupo-corpo">
                         <ul class="itens"></ul>
-                        <button type="button" class="adicionar" onclick="adicionar('alimento', false)">+ Adicionar item</button>
-                        <button type="button" class="adicionar" onclick="adicionar('alimento', true)">+ Adicionar remessa</button>
+                        <button type="button" class="adicionar" onclick="adicionar('alimento', false)">+ Adicionar mais alimento</button>
+                        <button type="button" class="adicionar" onclick="adicionar('alimento', true)">+ Adicionar varios alimentos</button>
                     </div>
 
                     <template class="campos-item">
@@ -460,7 +522,7 @@
         </form>
     </main>
 
-    <button class="botao-mais" popovertarget="popup"><i class="icone mais"></i></button>
+    <button class="botao-mais" popovertarget="popup">+</button>
 
     <div id="popup" popover>
         <div class="popup-topo">
@@ -483,9 +545,9 @@
         </div>
     </div>
 
-    <footer class="rodapé">
+    <footer class="rodape">
         <div>Total: <b id="total-un">0 un.</b><br>Tipos: <b id="total-tipos">0</b></div>
-        <button class="enviar" id="botao-enviar" type="submit" form="formDoacao" disabled>Enviar doação</button>
+        <button class="enviar" id="botao-enviar" type="submit" form="formDoacao" disabled>Registrar doação</button>
     </footer>
 
     <p id="aviso" hidden></p>
@@ -493,12 +555,9 @@
     <template id="modelo-item">
         <li class="item">
             <div class="item-topo">
-                <button class="botao-icone abrir-fechar" onclick="alternar(this)"><i class="icon seta"></i></button>
                 <div class="item-texto"><span class="etiqueta">Remessa</span> <span class="resumo"></span></div>
                 <div class="qtd-caixa">
-                    <button onclick="mudarQtd(this, -1)"><i class="icone menos"></i></button>
                     <input class="qtd" type="number" min="1" value="1" required>
-                    <button onclick="mudarQtd(this, 1)"><i class="icone mais"></i></button>
                 </div>
                 <button class="botao-icone" onclick="removerItem(this)"><i class="icone lixeira"></i></button>
             </div>
