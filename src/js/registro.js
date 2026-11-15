@@ -19,6 +19,7 @@ form.addEventListener("submit", async (event) => {
     const dados = {
         nome: nome,
         cpf: cpf,
+        telefone: telefone,
         email: email,
         senha: senha
     };

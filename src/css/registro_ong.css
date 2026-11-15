@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --cor-fundo: #F7F7F8;
+    --caixa: #ebe9e9;
+    --cor-fonte-padrão: #2B2B2C;
+    --suave: #5b7078;
+    --linha: rgb(205, 210, 214);
+    --cor-primaria: #D5B7A0;
+    --cor-primaria-texto: #3a2a00;
+    --erro: #b3261e;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    transition: transform 0.5s ease-in-out;
+}
+
+
+::-webkit-scrollbar-track {
+    background: #1b1b1b;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--cor-primaria);
+    border-radius: 10px;
+    border: 4px solid #1b1b1b;
+}
+
+::selection {
+    color: black;
+    background: #dac4b2;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body{
+    margin: 0;
+    background: var(--cor-fundo);
+    color: var(--cor-fonte-padrão);
+    font-family: 'fira sans';
+    line-height: 1.4;
+}
+
+#loading-coracao {
+    width: 15%;
+    height: auto;
+    top: 0;
+    left: 0;
+}
+
+.loading-animation {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--cor-fundo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.6s ease, visibility 0.7s ease;
+}
+
+#loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+button, input, select, textarea{
+    font: inherit;
+    color: inherit;
+}
+
+button{
+    cursor: pointer;
+}
+
+[hidden]{ 
+    display: none !important;
+}
+
+main{
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px 16px 130px;
+}
+
+h1{
+    margin: 100px 0 4px;
+    font-size: 28px;
+}
+
+main>p{
+    margin: 0 0 12px;
+    color: var(--suave);
+}
+
+input:not([type="file"]), select{
+    border: none;
+    background: var(--caixa);
+    height: 36px;
+    border-radius: 50px;
+    padding-left: 16px;
+}
+
+input[type="file"]::file-selector-button{
+    border-radius: 50px;
+    height: 36px;
+    width: 224px;
+    border: none;
+    padding-left: 16px;
+    padding-right: 16px;
+    cursor: pointer;
+    background-color: var(--cor-fonte-padrão);
+    color: var(--cor-fundo);
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: var(--cor-primaria);
+}
+
+input[type="file"]{
+    cursor: pointer;
+    width: 100%;
+}
+
+textarea{
+    border: none;
+    background: var(--caixa);
+    height: 128px;
+    border-radius: 20px;
+    padding-left: 16px;
+    resize: vertical;
+    min-height: 128px;
+    max-height: 350px;
+}
+
+input.largo, select.largo, textarea.largo{
+    width: 100%;
+}
+
+/*input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+
+
+input[type="checkbox"]:checked {
+    background-color: #7B2CBF;
+    border-color: #7B2CBF;
+}}*/
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #999;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+}
+
+.container, .containertq  {
+    display: flex;
+    gap: 15px;
+}
+
+.container label:first-child {
+    flex: 1;
+}
+
+.container label:last-child {
+    flex: 1;
+}
+
+.container input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.containertq label:first-child {
+    flex: 3;
+}
+
+.containertq label:last-child {
+    flex: 1;
+}
+
+.containertq input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+select option:checked {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+#botaoRegistrarOng{
+    margin-top: 64px;
+    width: 100%;
+    border-radius: 50px;
+    height: 36px;
+    border: none;
+    padding-left: 16px;
+    padding-right: 16px;
+    cursor: pointer;
+    background: var(--caixa);
+    color: var(--cor-fonte-padrão);
+}
+
+#botaoRegistrarOng:hover{
+    background: var(--cor-primaria);
+    color: var(--cor-fundo);
+}

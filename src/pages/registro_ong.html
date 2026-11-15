@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/registro_ong.css">
+    <link rel="stylesheet" href="../css/icone.css">
+    <script src="../js/menu.js" defer></script>
+    <script src="../js/registro_ong.js" defer></script>
+    <title>Doa-se (Nova Doação)</title>
+</head>
+<body>
+
+    <div id="loading-screen">
+        <div class="loading-background"></div>
+        <div class="loading-animation">
+            <img id="loading-coracao" src="../assets/anim/coracao_anim.svg" alt="Carregando">
+        </div>
+    </div>
+
+    <div id="user">
+        <div class="user-screen" onclick="user_perfil()"></div>
+        <div id="menu-user">
+            <div id="user-info">
+                <img id="user-photo" src="src/assets/images/Endy/20260925_212702.jpg" alt="">
+                <div id="user-blur-b">
+                    <div id="user-blur">
+                        <div id="user-info-containder">
+                            <h2 class="user-info" id="user-info-nome">Olá, <Span>Endy</Span>!</h2>
+                            <p class="user-info" id="user-info-cad">Doador desde 2025</p>
+                            <p class="user-info" id="user-info-mot">Seu apoio faz a diferença.</p>
+                        </div>
+                        <button id="btn-user-doacao">Fazer uma doação</button>
+                    </div>
+                </div>
+                <svg id="user-setting-icon" onclick="addUserSetting()" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path  d="M1.60682 18C2.43398 19.4356 4.26834 19.9288 5.70393 19.1017C5.70491 19.1011 5.70585 19.1005 5.70684 19.1L6.15182 18.843C6.99182 19.5616 7.95735 20.119 8.9998 20.487V21C8.9998 22.6568 10.343 24 11.9998 24C13.6566 24 14.9998 22.6568 14.9998 21V20.487C16.0424 20.1184 17.008 19.5604 17.8478 18.841L18.2948 19.099C19.7307 19.9274 21.5664 19.4349 22.3948 17.999C23.2232 16.563 22.7308 14.7274 21.2948 13.899L20.8508 13.643C21.0507 12.5554 21.0507 11.4405 20.8508 10.353L21.2948 10.097C22.7307 9.26855 23.2232 7.43292 22.3948 5.99695C21.5664 4.56103 19.7308 4.06852 18.2948 4.89694L17.8498 5.15395C17.009 4.43616 16.0428 3.87984 14.9998 3.513V3C14.9998 1.34316 13.6566 0 11.9998 0C10.343 0 8.9998 1.34316 8.9998 3V3.513C7.95721 3.88158 6.99163 4.43958 6.15182 5.15902L5.70482 4.90003C4.26885 4.07156 2.43323 4.56408 1.6048 6C0.776383 7.43592 1.26885 9.27159 2.70482 10.1L3.14882 10.356C2.94895 11.4435 2.94895 12.5584 3.14882 13.646L2.70482 13.902C1.27284 14.7326 0.781961 16.5647 1.60682 18ZM11.9998 8.00002C14.2089 8.00002 15.9998 9.79088 15.9998 12C15.9998 14.2091 14.2089 16 11.9998 16C9.79068 16 7.99982 14.2091 7.99982 12C7.99982 9.79088 9.79068 8.00002 11.9998 8.00002Z"/>
+                </svg>
+            </div>
+            <div id="user-setting">
+                <svg id="user-setting-icon-back" onclick="removeUserSetting()" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 10.5H10.207L12.646 8.061C12.9274 7.77974 13.0855 7.39822 13.0856 7.00036C13.0857 6.6025 12.9277 6.2209 12.6465 5.9395C12.3652 5.65811 11.9837 5.49997 11.5858 5.49988C11.188 5.49978 10.8064 5.65774 10.525 5.939L6.93896 9.525C6.28373 10.182 5.91577 11.0721 5.91577 12C5.91577 12.9279 6.28373 13.818 6.93896 14.475L10.525 18.061C10.8064 18.3423 11.188 18.5002 11.5858 18.5001C11.9837 18.5 12.3652 18.3419 12.6465 18.0605C12.9277 17.7791 13.0857 17.3975 13.0856 16.9997C13.0855 16.6018 12.9274 16.2203 12.646 15.939L10.207 13.5H19C19.3978 13.5 19.7793 13.342 20.0606 13.0607C20.3419 12.7794 20.5 12.3978 20.5 12C20.5 11.6022 20.3419 11.2206 20.0606 10.9393C19.7793 10.658 19.3978 10.5 19 10.5Z"/>
+                </svg>
+
+                <ul class="user-setting-list">
+                    <li><a href="">Configurações</a></li>
+                    <li><a href="">Segurança e Privacidade</a></li>
+                    <li><a href="">Histórico de doações</a></li>
+                    <li><a href="">Ajuda</a></li>
+                    <li><a href="">Sair</a></li>
+                </ul>
+            </div>
+           
+        </div>
+    </div>
+
+    <!--<div id="login-popup">
+        <div class="login-screen" onclick="user_login()"></div>
+        <div id="login-pop">  
+            <form action="login">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com" required><br>
+                
+                <label class="form-label" for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="********" required>
+            </form>
+
+            <a href="">Esqueceu a senha?</a>
+            <button>Entrar</button>
+        </div>
+    </div>-->
+
+    <header>
+        <nav>
+            <div class="hero-nav-bar" onclick="user_perfil_b()"></div>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../../index.html#impactos">Sobre</a></li>
+                <li><a onclick="abrirSublista()">Doações</a>
+                    <ul id="sublista-doar">
+                        <li><a href="../pages/doacao.html">Doar</a></li>
+                        <li><a href="">Campanhas</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Contato</a></li>
+                <div id="login-icon">
+                    <button id="btn-user" onclick="user_perfil()"></button>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Registrar ONG recebedora</h1>
+        <p>Cadastre sua ONG e conecte sua instituição a pessoas dispostas a ajudar. Aqui, sua organização poderá receber doações e transformar a solidariedade em oportunidades para quem mais precisa.<br></p>
+
+        <section>
+
+            <h3><i class="icone iconeG ong"></i> - Informações da ONG</h3>
+
+            <label for="cnpj"><br>CNPJ<br>
+                <input type="text" id="cnpj" class="largo" name="cnpj" placeholder="00.000.000/0000-00" required>
+            </label>
+
+            <label for="fantasia"><br><br>Nome Fantasia<br>
+                <input type="text" id="fantasia" name="fantasia" class="largo" placeholder="Diagite o nome fantasia" required>
+            </label>
+
+            <label for="razao"><br><br>Razão Social<br>
+                <input type="text" id="razao" name="razao" class="largo" placeholder="Diagite a razão social" required>
+            </label>
+
+            <label for="atuacao"><br><br>Area de atuação<br>
+                <select name="atuacao" id="atuacao" class="largo" required data-resumo>
+                    <option value="" disabled selected>Selecione</option>
+                    <option value="social">Assistência Social</option>
+                    <option value="educacao">Educação</option>
+                    <option value="saude">Saúde</option>
+                    <option value="direito">Direitos Humanos</option>
+                    <option value="crianca">Crianças e Adolescentes</option>
+                    <option value="idoso">Idosos</option>
+                    <option value="deficiencia">Pessoas com Deficiência</option>
+                    <option value="moradia">Moradia e Habitação</option>
+                    <option value="alimentar">Segurança Alimentar</option>
+                    <option value="emprego">Empregabilidade</option>
+                    <option value="comunidade">Apoio a Comunidades</option>
+                    <option value="desastre">Emergências e Desastres</option>
+                    <option value="dependencia">Dependência Química</option>
+                </select>
+            </label>
+
+            <label for="projeto"><br><br>Projetos<br>
+                <div id="projeto"></div>
+            </label>
+
+            <label for="site"><br><br>Site ou redes sociais<br>
+                <input type="url" id="site" name="site" class="largo" placeholder="https://www.seusite.com" required>
+            </label>
+
+            <label for="descricao"><br><br>Descrição<br>
+                <textarea name="descricao" id="descricao" class="largo" placeholder="Descreva sobre a ong" required></textarea>
+            </label>
+
+
+            <h3><br><i class="icone iconeG local"></i> - Informações do endereço</h3>
+
+            <label for="cep"><br>CEP<br>
+                <input type="text" id="cep" name="cep" class="largo" placeholder="00000-000" required>
+            </label>
+
+            <div class="containertq">
+                <label for="rua"><br>Rua<br>
+                    <input type="text" id="rua" name="rua" placeholder="Digite o nome da rua" required>
+                </label>
+
+                <label for="enderecoNumero"><br>Nº<br>
+                    <input type="text" id="enderecoNumero" name="enderecoNumero" placeholder="000" required>
+                </label>
+            </div>
+
+            <div class="container">
+                <label for="complemento"><br>Complemento<br>
+                    <input type="text" id="complemento" name="complemento" placeholder="Complemento" required>
+                </label>
+
+                <label for="bairro"><br>Bairro<br>
+                    <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                </label>
+            </div>
+
+            <div class="containertq">
+                <label for="cidade"><br>Cidade<br>
+                    <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+                </label>
+
+                <label for="estado"><br>Estado<br>
+                    <input type="text" id="estado" name="estado" placeholder="UF" required>
+                </label>
+            </div>
+
+
+            <h3><br><i class="icone iconeG pessoa"></i> - Responsavel pela ONG</h3>
+
+            <label for="responsavelOng"><br>Nome<br>
+                <input type="text" id="responsavelOng" name="responsavelOng" class="largo" placeholder="Nome completo" required>
+            </label>
+
+            <label for="cpf"><br><br>CPF<br>
+                <input type="text" id="cpf" name="cpf" class="largo" placeholder="000.000.000-00" required>
+            </label>
+
+            <label for="categoriaCargo"><br><br>Categoria do cargo<br>
+                <select name="categoriaCargo" id="categoriaCargo" class="largo" required data-resumo>
+                    <option value="" disabled selected>Selecione</option>
+                    <option value="presidencia">Presidência</option>
+                    <option value="diretoria">Diretoria Executiva</option>
+                    <option value="secretaria">Secretaria</option>
+                    <option value="financeiro">financeiro</option>
+                    <option value="coordenacao">Coordenação</option>
+                    <option value="conselho">Conselhos</option>
+                    <option value="representante">Representação Legal</option>
+                </select>
+            </label>
+
+            <label for="cargo"><br><br>Cargo<br>
+                <select name="cargo" id="cargo" class="largo">
+                    <option value="" disabled selected>Selecione uma categoria primeiro</option>
+                </select>
+            </label>
+
+            <label for="email"><br><br>E-mail<br>
+                <input type="email" id="email" name="email" class="largo" placeholder="exemplo@email.com.br" required>
+            </label>
+
+            <label for="telefone"><br><br>Telefone<br>
+                <input type="tel" id="telefone" name="telefone" class="largo" placeholder="(00) 00000-0000" required>
+            </label>
+
+
+            <h3><br><i class="icone iconeG papel"></i> - Documentação</h3>
+
+            <label for="inscricaoCnpj"><br>Comprovante de inscrição no CNPJ<br>
+                <input type="file" id="inscricaoCnpj" name="inscricaoCnpj" accept="application/pdf">
+            </label>
+
+            <label for="estatutoSocial"><br><br>Estatuto Social registrado<br>
+                <input type="file" id="estatutoSocial" name="estatutoSocial" accept="application/pdf">
+            </label>
+
+            <label for="ataDiretoria"><br><br>Ata de eleição e posse da diretoria<br>
+                <input type="file" id="ataDiretoria" name="ataDiretoria" accept="application/pdf">
+            </label>
+
+            <div><br><br>
+                <input type="checkbox">Li e aceito os Termos de Uso e a Política de Privacidade
+            </div>
+
+            <button id="botaoRegistrarOng">Registrar ONG</button>
+        </section>
+    
+</body>
+</html>
