@@ -148,5 +148,3 @@ async function carregarDoacoesQTD() {
 }
 
 carregarDoacoesQTD();
-
-

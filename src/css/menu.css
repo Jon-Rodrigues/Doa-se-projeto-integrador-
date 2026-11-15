@@ -75,6 +75,36 @@ body {
     pointer-events: none;
 }
 
+label {
+    padding: 0px;
+    padding-inline: 5px;
+    font-size: 15px;
+    background-color: var(--cor-fundo);
+    color: gray;
+    position: relative;
+    top: 3px;
+    left: 13px;
+    pointer-events: none;
+}
+
+input {
+    background-color: var(--cor-fundo);
+}
+
+a{
+    text-decoration: none;
+    color: var(--cor-fonte-padrão);
+}
+
+a:hover{
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--cor-primaria);
+}
+
+li{
+    list-style: none;
+}
 
 
 /* ==========================================================================
@@ -121,13 +151,7 @@ body {
     aspect-ratio: 1 / 1;
 }
 
-#btn-entrar {
-    display: none;
-    position: absolute;
-}
-
 #btn-user {
-    position: absolute;
     width: 100%;
     aspect-ratio: 1 / 1;
     border-radius: 100%;
@@ -178,50 +202,100 @@ body {
     background-color: var(--cor-primaria);
 }
 
-#user-photo {
-    width: 310px;
+#user-photo-container{
     position: absolute;
-    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    overflow: hidden;
+    top: 10%;
+}
+
+#user-photo {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
 }
 
 #user-info-containder {
+    width: 100%;
     position: absolute;
+    top: 40%;
+    left: 5px;
 }
 
 .user-info {
+    text-align: center;
     font-family: 'fira sans';
-    margin-left: 20px;
     margin-top: 3px;
     letter-spacing: 0.5px;
-    color: var(--cor-fundo);
+    color: var(--cor-fonte-padrão);
 }
 
 #user-info-nome {
-    font-weight: 500;
+    font-weight: 400;
     bottom: 25%;
 }
 
+.resumo-doacao{
+    font-size: 10px;
+}
+
+#resumo-user{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    gap: 10px;
+}
+
+.btn-user-painel{
+    border-radius: 50px;
+    border: none;
+    background: var(--cor-fonte-padrão);
+    color: var(--cor-fundo);
+    cursor: pointer;
+    height: 50px;
+    width: 150px;
+}
+
+.btn-user-painel:hover{
+    background: var(--cor-primaria);
+}
+
+#btn-painel-container{
+    margin-top: 30px;
+    margin: 30px;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+}
+
 #user-info-cad, #user-info-tipo, #user-info-mot {
-    font-size: 14px;
+    font-size: 10px;
 }
 
 #user-blur {
-    width: 100%;
-    height: 170px;
-    bottom: 0;
+    width: 200%;
+    height: 200px;
+    left: -50%;
+    bottom: -10%;
     position: absolute;
-    background: #1b1b1b6f;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--cor-fundo);
+    filter: blur(10px);
 }
 
 #user-setting-icon {
-    fill: var(--cor-fundo);
+    fill: var(--cor-fonte-padrão);
     position: absolute;
     width: 20px;
     height: 20px;
     right: 5%;
-    top: 3%;
+    top: 5%;
     cursor: pointer;
 }
 
@@ -249,15 +323,20 @@ body {
     height: 100%;
     background: var(--cor-fundo);
     display: none;
+    z-index: 100;
 }
 
 #user-setting.ativo {
     display: block;
 }
 
-.user-setting-list {
+.user-setting-list{
     position: absolute;
     bottom: 20px;
+    color: var(--cor-fonte-padrão);
+    font-family: 'fira sans';
+    letter-spacing: 0.5px;
+
 }
 
 .user-setting-list li{
@@ -297,10 +376,6 @@ body {
     right: 10%;
 }
 
-
-/* ==========================================================================
-   3. HERO SECTION
-   ========================================================================== */
 
 nav {
     position: fixed;
