@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/historico_doacao.css">
+    <link rel="stylesheet" href="../css/icone.css">
+    <script src="../js/historico_doacao.js" defer></script>
+    <script src="../js/menu.js" defer></script>
+    <title>Doa-se</title>
+</head>
+<body>
+
+    <div id="loading-screen">
+        <div class="loading-background"></div>
+        <div class="loading-animation">
+            <img id="loading-coracao" src="../assets/anim/coracao_anim.svg" alt="Carregando">
+        </div>
+    </div>
+
+    <div id="user">
+        <div class="user-screen" onclick="user_perfil()"></div>
+        <div id="menu-user">
+            <div id="user-info">
+                <div>
+                    <img id="user-photo-banner" src="../assets/images/Endy/20260925_212702.jpg" alt="">
+                </div>
+                <div id="user-blur-b">
+                    <div id="user-blur">
+                    </div>
+                </div>
+
+                <div id="user-info-containder">
+                    <h3 class="user-info" id="user-info-nome">Olá, <Span>Endy Henrique</Span>!</h3><br>
+
+                    <div id="resumo-user">
+                        <div class="user-info">
+                            <h3>12</h3>
+                            <p class="resumo-doacao">Doações<br>realizadas</p>
+                        </div>
+                        <div class="user-info">
+                            <h3>8</h3>
+                            <p class="resumo-doacao">Doações<br>concluidas</p>
+                        </div>
+                        <div class="user-info">
+                            <h3>4</h3>
+                            <p class="resumo-doacao">Em<br>andamento</p>
+                        </div>
+                        <button class="btn-user-painel">Quero doar</button>
+                        <button class="btn-user-painel">Quero Receber</button>
+                    </div>
+
+                </div>
+
+
+                <div id="user-photo-container">
+                    <img id="user-photo" src="src/assets/images/Endy/20260925_212702.jpg" alt="">
+                </div>
+                <svg id="user-setting-icon" onclick="addUserSetting()" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path  d="M1.60682 18C2.43398 19.4356 4.26834 19.9288 5.70393 19.1017C5.70491 19.1011 5.70585 19.1005 5.70684 19.1L6.15182 18.843C6.99182 19.5616 7.95735 20.119 8.9998 20.487V21C8.9998 22.6568 10.343 24 11.9998 24C13.6566 24 14.9998 22.6568 14.9998 21V20.487C16.0424 20.1184 17.008 19.5604 17.8478 18.841L18.2948 19.099C19.7307 19.9274 21.5664 19.4349 22.3948 17.999C23.2232 16.563 22.7308 14.7274 21.2948 13.899L20.8508 13.643C21.0507 12.5554 21.0507 11.4405 20.8508 10.353L21.2948 10.097C22.7307 9.26855 23.2232 7.43292 22.3948 5.99695C21.5664 4.56103 19.7308 4.06852 18.2948 4.89694L17.8498 5.15395C17.009 4.43616 16.0428 3.87984 14.9998 3.513V3C14.9998 1.34316 13.6566 0 11.9998 0C10.343 0 8.9998 1.34316 8.9998 3V3.513C7.95721 3.88158 6.99163 4.43958 6.15182 5.15902L5.70482 4.90003C4.26885 4.07156 2.43323 4.56408 1.6048 6C0.776383 7.43592 1.26885 9.27159 2.70482 10.1L3.14882 10.356C2.94895 11.4435 2.94895 12.5584 3.14882 13.646L2.70482 13.902C1.27284 14.7326 0.781961 16.5647 1.60682 18ZM11.9998 8.00002C14.2089 8.00002 15.9998 9.79088 15.9998 12C15.9998 14.2091 14.2089 16 11.9998 16C9.79068 16 7.99982 14.2091 7.99982 12C7.99982 9.79088 9.79068 8.00002 11.9998 8.00002Z"/>
+                </svg>
+
+                <div id="user-setting">
+                    <svg id="user-setting-icon-back" onclick="removeUserSetting()" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 10.5H10.207L12.646 8.061C12.9274 7.77974 13.0855 7.39822 13.0856 7.00036C13.0857 6.6025 12.9277 6.2209 12.6465 5.9395C12.3652 5.65811 11.9837 5.49997 11.5858 5.49988C11.188 5.49978 10.8064 5.65774 10.525 5.939L6.93896 9.525C6.28373 10.182 5.91577 11.0721 5.91577 12C5.91577 12.9279 6.28373 13.818 6.93896 14.475L10.525 18.061C10.8064 18.3423 11.188 18.5002 11.5858 18.5001C11.9837 18.5 12.3652 18.3419 12.6465 18.0605C12.9277 17.7791 13.0857 17.3975 13.0856 16.9997C13.0855 16.6018 12.9274 16.2203 12.646 15.939L10.207 13.5H19C19.3978 13.5 19.7793 13.342 20.0606 13.0607C20.3419 12.7794 20.5 12.3978 20.5 12C20.5 11.6022 20.3419 11.2206 20.0606 10.9393C19.7793 10.658 19.3978 10.5 19 10.5Z"/>
+                    </svg>
+
+                    <ul class="user-setting-list">
+                        <li><a href=""><i class="icone config iconeP"></i> Configurações</a></li>
+                        <li><a href=""><i class="icone seguranca iconeP"></i> Segurança e Privacidade</a></li>
+                        <li><a href=""><i class="icone hist iconeP"></i> Histórico de doações</a></li>
+                        <li><a href=""><i class="icone ajuda iconeP"></i> Ajuda</a></li>
+                        <li><a href=""><i class="icone sair iconeP"></i> Sair</a></li>
+                    </ul>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+    <!--<div id="login-popup">
+        <div class="login-screen" onclick="user_login()"></div>
+        <div id="login-pop">  
+            <form action="login">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com" required><br>
+                
+                <label class="form-label" for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="********" required>
+            </form>
+
+            <a href="">Esqueceu a senha?</a>
+            <button>Entrar</button>
+        </div>
+    </div>-->
+
+    <header>
+        <nav>
+            <div class="hero-nav-bar" onclick="user_perfil_b()"></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#impactos">Sobre</a></li>
+                <li><a onclick="abrirSublista()">Doações</a>
+                    <ul id="sublista-doar">
+                        <li><a href="src/pages/doacao.html">Doar</a></li>
+                        <li><a href="">Campanhas</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Contato</a></li>
+                <div id="login-icon">
+                    <button id="btn-user" onclick="user_perfil()"></button>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <h2>Histórico de doações</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Doação</th>
+                <th>Data</th>
+                <th>Categoria</th>
+                <th>Quantidade</th>
+                <th>Etapa</th>
+            </tr>
+        </thead>
+
+        <tbody id="tabelaDoacoes">
+
+            <tr>
+                <td>18</td>
+                <td>13/11/2026, 18:14:40</td>
+                <td>roupa</td>
+                <td>1</td>
+                <td>Pendente</td>
+            </tr>
+
+            <tr>
+                <td>18</td>
+                <td>13/11/2026, 18:14:40</td>
+                <td>roupa</td>
+                <td>1</td>
+                <td>Pendente</td>
+            </tr>
+
+            <tr>
+                <td>18</td>
+                <td>13/11/2026, 18:14:40</td>
+                <td>roupa</td>
+                <td>1</td>
+                <td>Pendente</td>
+            </tr>
+
+            <tr>
+                <td>18</td>
+                <td>13/11/2026, 18:14:40</td>
+                <td>roupa</td>
+                <td>1</td>
+                <td>Pendente</td>
+            </tr>
+
+            <tr>
+                <td>18</td>
+                <td>13/11/2026, 18:14:40</td>
+                <td>roupa</td>
+                <td>1</td>
+                <td>Pendente</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <footer>
+
+        <p>&copy; 2026 ONG - DOA-SE. Todos os direitos reservados.</p>
+    
+    </footer>
+</body>
+</html>
