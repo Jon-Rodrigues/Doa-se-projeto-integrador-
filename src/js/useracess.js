@@ -5,6 +5,8 @@ function quero_doar() { // Função para redirecionar o usuário para a página 
     window.location.href = "src/pages/login_regis.html";
 };
 
+
+
 // Abre e fecha a sublista de doações no nav
 const itemDoacoes = document.querySelector('.nav-links li:has(#sublista-doar)');
 const sublist = document.querySelector('#sublista-doar');
@@ -37,15 +39,18 @@ function user_perfil_b() {
 
 // Abre e fecha as configurações do usuario
 const userSetting = document.querySelector('#user-setting');
+const menuUser = document.querySelector('#menu-user')
 
 function addUserSetting() {
 
     userSetting.classList.add("ativo");
+    menuUser.classList.add("menuConfig");
 };
 
 function removeUserSetting() {
 
     userSetting.classList.remove("ativo");
+    menuUser.classList.remove("menuConfig");
 };
 
 
