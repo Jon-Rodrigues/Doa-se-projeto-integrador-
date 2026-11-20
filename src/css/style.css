@@ -836,6 +836,7 @@ nav.nav-scrolled .hero-nav-bar {
     background-color: var(--cor-fundo-e);
 }
 
+
 /* ==========================================================================
    7 ENTRE EM CONTATO
    ========================================================================== */
@@ -949,15 +950,15 @@ nav.nav-scrolled .hero-nav-bar {
 .grid2_2x2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    margin-bottom: 25px;
+    gap: 20px;
+    margin-bottom: 20px;
 }
-
 
 .lgrid_whats,
 .lgrid_email,
 .lgrid_telefone,
 .lgrid_endereco {
+
     display: flex;
     align-items: flex-start;
     gap: 15px;
@@ -965,33 +966,27 @@ nav.nav-scrolled .hero-nav-bar {
     padding: 0;
 }
 
-.lgrid_whats img,
-.lgrid_email img,
-.lgrid_telefone img,
-.lgrid_endereco img {
-    width: 34px;
-    height: 34px;
-    object-fit: contain;
-    margin-top: 2px;
+.redes_sociais {
+    margin-top: 25px;
+    display: block;
+    width: 100%;
 }
 
-.lgrid_whats h3,
-.lgrid_email h3,
-.lgrid_telefone h3,
-.lgrid_endereco h3 {
+.redes_sociais h3 {
     font-size: 16px;
     font-weight: 700;
     color: var(--cor-fonte-padrão);
-    margin-bottom: 4px;
+    margin-bottom: 12px;
 }
 
-.lgrid_whats p,
-.lgrid_email p,
-.lgrid_telefone p,
-.lgrid_endereco p {
-    font-size: 14px;
-    color: #666666;
+.icones_sociais {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
 }
+
+
 
 /* Responsivo para celular */
 @media (max-width: 900px) {
@@ -1005,8 +1000,6 @@ nav.nav-scrolled .hero-nav-bar {
         grid-template-columns: 1fr;
     }
 }
-
-
 
 footer {
     position: absolute;
