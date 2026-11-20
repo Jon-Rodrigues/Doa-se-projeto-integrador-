@@ -836,6 +836,176 @@ nav.nav-scrolled .hero-nav-bar {
     background-color: var(--cor-fundo-e);
 }
 
+/* ==========================================================================
+   7 ENTRE EM CONTATO
+   ========================================================================== */
+
+#contatos {
+    position: relative;
+    margin-top: 780px;
+    max-width: 1150px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 60px 20px 100px;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 70px;
+    align-items: start;
+    font-family: 'Fira Sans', sans-serif;
+    color: var(--cor-fonte-padrão);
+}
+
+
+.container_contatos {
+    width: 100%;
+    background: transparent;
+    padding: 0;
+}
+
+.container_contatos form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container_contatos label {
+    position: static;
+    background: transparent;
+    padding: 0;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--cor-fonte-padrão);
+    pointer-events: auto;
+}
+
+.container_contatos input,
+.container_contatos textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1.5px solid #999999;
+    background-color: transparent;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 14px;
+    color: var(--cor-fonte-padrão);
+    box-sizing: border-box;
+}
+
+.container_contatos input:focus,
+.container_contatos textarea:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+}
+
+
+#enviar {
+    width: fit-content;
+    padding: 14px 32px;
+    border-radius: 14px 0px 14px 14px;
+    border: none;
+    background: var(--cor-primaria);
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: 0.3s;
+}
+
+#enviar:hover {
+    background: var(--cor-fonte-padrão);
+}
+
+
+.lado_info h2 {
+    color: var(--cor-primaria);
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.lado_info h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--cor-fonte-padrão);
+    margin-bottom: 15px;
+}
+
+.lado_info>a {
+    display: block;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666666;
+    margin-bottom: 35px;
+}
+
+
+.grid_2x2,
+.grid2_2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+
+.lgrid_whats,
+.lgrid_email,
+.lgrid_telefone,
+.lgrid_endereco {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: transparent;
+    padding: 0;
+}
+
+.lgrid_whats img,
+.lgrid_email img,
+.lgrid_telefone img,
+.lgrid_endereco img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    margin-top: 2px;
+}
+
+.lgrid_whats h3,
+.lgrid_email h3,
+.lgrid_telefone h3,
+.lgrid_endereco h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--cor-fonte-padrão);
+    margin-bottom: 4px;
+}
+
+.lgrid_whats p,
+.lgrid_email p,
+.lgrid_telefone p,
+.lgrid_endereco p {
+    font-size: 14px;
+    color: #666666;
+}
+
+/* Responsivo para celular */
+@media (max-width: 900px) {
+    #contatos {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .grid_2x2,
+    .grid2_2x2 {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 
 footer {
